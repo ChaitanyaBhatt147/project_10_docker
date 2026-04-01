@@ -1,5 +1,7 @@
 version: '3.8'
+
 services:
+
   frontend:
     container_name: frontend-container
     build:
@@ -21,6 +23,8 @@ services:
       - mysql
     networks:
       - my-network
+    environment:
+      - DB_HOST=mysql
 
   mysql:
     container_name: mysql-container

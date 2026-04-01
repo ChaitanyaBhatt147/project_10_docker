@@ -8,7 +8,7 @@ WORKDIR /app
 COPY ./target/ORSProject-10-0.0.1-SNAPSHOT.jar /app/ORSProject-10-0.0.1-SNAPSHOT.jar
 
 # Expose port 8080 for the application
-EXPOSE 8081
+EXPOSE 8080
 
 # Define the command to run the Spring Boot application
 CMD ["java", "-jar", "ORSProject-10-0.0.1-SNAPSHOT.jar"]

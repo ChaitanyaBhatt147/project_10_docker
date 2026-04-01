@@ -1,0 +1,186 @@
+<!-- SAME JSP STYLE + BACKGROUND -->
+<style>
+    .hm {
+        background-image: url('assets/img/list.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 85px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .text {
+        text-align: center;
+    }
+
+    /* OPTIONAL: make table bold like JSP */
+    .table tbody tr {
+        font-weight: bold;
+    }
+</style>
+
+<div class="hm">
+
+    <div class="container-fluid">
+
+        <!-- TITLE -->
+        <div class="text-center pt-3">
+            <h1 class="text-dark fw-bold">
+                <u>{{'User.Title.List' | translate}}</u>
+            </h1>
+        </div>
+
+         <div *ngIf="form.error" class="alert alert-danger text-center">
+        {{form.message}}
+    </div>
+
+    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+        {{form.message}}
+    </div>
+
+        <!-- SEARCH -->
+        <div class="row mt-2" *ngIf="form.list.length > 0">
+
+            <div class="col-sm-2"></div>
+
+            <div class="col-sm-2">
+                <input type="text" class="form-control" [(ngModel)]="form.searchParams.firstName"
+                    placeholder="{{'User.Placeholders.FirstName' | translate}}">
+            </div>
+
+            <div class="col-sm-2">
+                <input type="text" class="form-control" [(ngModel)]="form.searchParams.loginId"
+                    placeholder="{{'User.Placeholders.LoginId' | translate}}">
+            </div>
+
+            <div class="col-sm-3">
+                <select class="form-control" [(ngModel)]="form.searchParams.roleId">
+                    <option value="undefined">
+                        {{'Common.Select' | translate}}
+                    </option>
+                    <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">
+                        {{obj.value}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-sm-2">
+                <button class="btn btn-primary me-2" (click)="search()">
+                    {{'Common.Search' | translate}}
+                </button>
+
+                <button class="btn btn-dark" (click)="reset()">
+                    {{'Common.Reset' | translate}}
+                </button>
+            </div>
+
+            <div class="col-sm-1"></div>
+        </div>
+
+        <br>
+
+        <!-- TABLE -->
+        <div class="table-responsive" *ngIf="form.list.length > 0">
+            <table class="table table-bordered table-striped table-hover">
+
+                <thead>
+                    <tr style="background-color:#f79d65; font-size:18px;">
+
+                        <th>
+                            <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)">
+                            {{'Common.SelectAll' | translate}}
+                        </th>
+
+                        <th class="text">{{'User.Fields.ProfileImage' | translate}}</th>
+                        <th class="text">{{'Common.SNo' | translate}}</th>
+                        <th class="text">{{'User.Fields.FirstName' | translate}}</th>
+                        <th class="text">{{'User.Fields.LastName' | translate}}</th>
+                        <th class="text">{{'User.Fields.LoginId' | translate}}</th>
+                        <th class="text">{{'User.Fields.Gender' | translate}}</th>
+                        <th class="text">{{'User.Fields.Role' | translate}}</th>
+                        <th class="text">{{'User.Fields.Mobile' | translate}}</th>
+                        <th class="text">{{'User.Fields.DOB' | translate}}</th>
+                        <th class="text">{{'Common.Edit' | translate}}</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let m of form.list; let i = index">
+
+                        <td class="text">
+                            <input #checkboxes type="checkbox" (change)="checklistUpdate()" [id]="m.id" [value]="m.id">
+                        </td>
+
+                        <!-- IMAGE -->
+                        <td class="text">
+                            <img *ngIf="m.imageId" [src]="'http://localhost:8080/User/profilePic/' + m.id"
+                                class="img-thumbnail" width="70" height="70">
+
+                            <img *ngIf="!m.imageId" src="assets/img/default.png" class="img-thumbnail" width="70"
+                                height="70">
+                        </td>
+
+                        <td class="text">{{(form.pageNo*5)+i+1}}</td>
+                        <td class="text">{{m.firstName}}</td>
+                        <td class="text">{{m.lastName}}</td>
+                        <td class="text">{{m.loginId}}</td>
+                        <td class="text">{{m.gender}}</td>
+                        <td class="text">{{m.roleName}}</td>
+                        <td class="text">{{m.phone}}</td>
+                        <td class="text">{{m.dob | date:'dd-MM-yyyy'}}</td>
+
+                        <td class="text">
+                            <a (click)="forward('/user/' + m.id)" style="cursor:pointer;">
+                                {{'Common.Edit' | translate}}
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <!-- BUTTONS -->
+        <table width="100%" *ngIf="form.list.length > 0">
+            <tr>
+
+                <td>
+                    <button class="btn btn-warning" (click)="previous()" [disabled]="form.pageNo == 0">
+                        {{'Common.Previous' | translate}}
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-primary" (click)="forward('/user')">
+                        {{'Common.New' | translate}}
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-danger" (click)="deleteMany()">
+                        {{'Common.Delete' | translate}}
+                    </button>
+                </td>
+
+                <td align="right">
+                    <button class="btn btn-warning" (click)="next()" [disabled]="form.nextListSize == 0">
+                        {{'Common.Next' | translate}}
+                    </button>
+                </td>
+
+            </tr>
+        </table>
+
+        <!-- BACK -->
+        <div class="text-center mt-3" *ngIf="form.list.length == 0">
+            <button class="btn btn-primary" (click)="reset()">
+                {{'Common.Back' | translate}}
+            </button>
+        </div>
+
+    </div>
+
+</div>

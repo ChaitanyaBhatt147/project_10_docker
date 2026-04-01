@@ -1,0 +1,157 @@
+<style>
+    .hm {
+        background-image: url('assets/img/addPage.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .card-style {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 10px;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 form-container">
+
+                <div class="card card-style grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ form.data.id > 0 
+                                ? ('Marksheet.Title.Update' | translate) 
+                                : ('Marksheet.Title.Add' | translate) }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                            </div>
+                        </div>
+
+                        <!-- ROLL NO -->
+                        <label class="form-label">
+                            {{'Marksheet.Fields.RollNo' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                               [(ngModel)]="form.data.rollNo"
+                               name="rollNo"
+                               maxlength="5"
+                               placeholder="Enter Roll No">
+                        <div class="error-text">{{form.inputerror.rollNo}}</div>
+
+                        <!-- NAME -->
+                        <label class="form-label">
+                            {{'Marksheet.Fields.Name' | translate}} *
+                        </label>
+                        <select class="form-control mb-2"
+                                [(ngModel)]="form.data.studentId"
+                                name="studentId">
+                            <option value="undefined">{{'Common.Select' | translate}}</option>
+                            <option *ngFor="let obj of form.preload.studentList" [value]="obj.key">
+                                {{obj.value}}
+                            </option>
+                        </select>
+                        <div class="error-text">{{form.inputerror.studentId}}</div>
+
+                        <!-- PHYSICS -->
+                        <label class="form-label">
+                            {{'Marksheet.Fields.Physics' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                               [(ngModel)]="form.data.physics"
+                               name="physics"
+                               maxlength="3"
+                               placeholder="Enter Physics Marks">
+                        <div class="error-text">{{form.inputerror.physics}}</div>
+
+                        <!-- CHEMISTRY -->
+                        <label class="form-label">
+                            {{'Marksheet.Fields.Chemistry' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                               [(ngModel)]="form.data.chemistry"
+                               name="chemistry"
+                               maxlength="3"
+                               placeholder="Enter Chemistry Marks">
+                        <div class="error-text">{{form.inputerror.chemistry}}</div>
+
+                        <!-- MATHS -->
+                        <label class="form-label">
+                            {{'Marksheet.Fields.Maths' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                               [(ngModel)]="form.data.maths"
+                               name="maths"
+                               maxlength="3"
+                               placeholder="Enter Maths Marks">
+                        <div class="error-text">{{form.inputerror.maths}}</div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button class="btn btn-success me-2"
+                                    *ngIf="!form.data.id"
+                                    (click)="submit()">
+                                {{'Common.Save' | translate}}
+                            </button>
+
+                            <button class="btn btn-warning me-2"
+                                    *ngIf="!form.data.id"
+                                    (click)="reset()">
+                                {{'Common.Reset' | translate}}
+                            </button>
+
+                            <button class="btn btn-success me-2"
+                                    *ngIf="form.data.id"
+                                    (click)="submit()">
+                                {{'Common.Update' | translate}}
+                            </button>
+
+                            <button class="btn btn-primary"
+                                    *ngIf="form.data.id"
+                                    (click)="forward('/marksheetlist')">
+                                {{'Common.Back' | translate}}
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

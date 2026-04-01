@@ -1,0 +1,132 @@
+<style>
+    .hm {
+        background-image: url('assets/img/addPage.png');
+        /* you can change to college bg if needed */
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .card-style {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 12px;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 form-container">
+
+                <div class="card card-style grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ form.data.id > 0
+                            ? ('College.Title.Update' | translate)
+                            : ('College.Title.Add' | translate) }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                            </div>
+                        </div>
+
+                        <!-- NAME -->
+                        <label class="form-label">
+                            {{'College.Fields.Name' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.name" name="name"
+                            placeholder="Enter College Name">
+                        <div class="error-text">{{form.inputerror.name}}</div>
+
+                        <!-- ADDRESS -->
+                        <label class="form-label">
+                            {{'College.Fields.Address' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.address" name="address"
+                            placeholder="Enter Address">
+                        <div class="error-text">{{form.inputerror.address}}</div>
+
+                        <!-- STATE -->
+                        <label class="form-label">
+                            {{'College.Fields.State' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.state" name="state"
+                            placeholder="Enter State">
+                        <div class="error-text">{{form.inputerror.state}}</div>
+
+                        <!-- CITY -->
+                        <label class="form-label">
+                            {{'College.Fields.City' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.city" name="city"
+                            placeholder="Enter City">
+                        <div class="error-text">{{form.inputerror.city}}</div>
+
+                        <!-- PHONE -->
+                        <label class="form-label">
+                            {{'College.Fields.Phone' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.phoneNo" name="phoneNo"
+                            maxlength="10" placeholder="Enter Phone No">
+                        <div class="error-text">{{form.inputerror.phoneNo}}</div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button class="btn btn-success me-2" *ngIf="!form.data.id" (click)="submit()">
+                                {{'Common.Save' | translate}}
+                            </button>
+
+                            <button class="btn btn-warning me-2" *ngIf="!form.data.id" (click)="reset()">
+                                {{'Common.Reset' | translate}}
+                            </button>
+
+                            <button class="btn btn-success me-2" *ngIf="form.data.id" (click)="submit()">
+                                {{'Common.Update' | translate}}
+                            </button>
+
+                            <button class="btn btn-primary" *ngIf="form.data.id" (click)="forward('/collegelist')">
+                                {{'Common.Back' | translate}}
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

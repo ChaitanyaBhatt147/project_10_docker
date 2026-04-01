@@ -1,0 +1,234 @@
+{
+    "Common": {
+        "Search": "検索",
+        "Reset": "リセット",
+        "Save": "保存",
+        "Update": "更新",
+        "Delete": "削除",
+        "New": "新規",
+        "Next": "次へ",
+        "Previous": "前へ",
+        "Back": "戻る",
+        "Edit": "編集",
+        "Select": "------------選択------------",
+        "SNo": "番号",
+        "SelectAll": "すべて選択",
+        "Title": {
+            "User": "ユーザー",
+            "College": "学校",
+            "Course": "コース",
+            "Faculty": "教員",
+            "Student": "学生",
+            "Role": "役割",
+            "Subject": "科目",
+            "Timetable": "時間割",
+            "Marksheet": "成績表"
+        }
+    },
+    "GenderOptions": {
+        "Male": "男性",
+        "Female": "女性"
+    },
+    "Auth": {
+        "Login": "ログイン",
+        "SignIn": "サインイン",
+        "SignUp": "サインアップ",
+        "ForgotPassword": "パスワードをお忘れですか？",
+        "ChangePassword": "パスワード変更",
+        "OldPassword": "現在のパスワード",
+        "NewPassword": "新しいパスワード"
+    },
+    "User": {
+        "Title": {
+            "Add": "ユーザー追加",
+            "Update": "ユーザー更新",
+            "List": "ユーザー一覧",
+            "Profile": "マイプロフィール"
+        },
+        "Fields": {
+            "FirstName": "名",
+            "LastName": "姓",
+            "LoginId": "ログインID",
+            "Password": "パスワード",
+            "DOB": "生年月日",
+            "Gender": "性別",
+            "Role": "役割",
+            "Mobile": "携帯番号",
+            "Status": "状態",
+            "AlternateMobile": "予備の携帯番号",
+            "ProfileImage": "プロフィール画像"
+        },
+        "Placeholders": {
+            "FirstName": "名を入力してください",
+            "LastName": "姓を入力してください",
+            "LoginId": "ログインIDを入力してください",
+            "Password": "パスワードを入力してください",
+            "Mobile": "携帯番号を入力してください",
+            "AlternateMobile": "予備の携帯番号を入力してください"
+        },
+        "SelectOptions": {
+            "Active": "アクティブ",
+            "Inactive": "非アクティブ"
+        }
+    },
+    "College": {
+        "Title": {
+            "Add": "学校追加",
+            "Update": "学校更新",
+            "List": "学校一覧"
+        },
+        "Fields": {
+            "Name": "名前",
+            "Address": "住所",
+            "State": "都道府県",
+            "City": "市区町村",
+            "Phone": "電話番号"
+        }
+    },
+    "Course": {
+        "Title": {
+            "Add": "コース追加",
+            "Update": "コース更新",
+            "List": "コース一覧"
+        },
+        "Fields": {
+            "Name": "名前",
+            "Duration": "期間",
+            "Description": "説明"
+        }
+    },
+    "Faculty": {
+        "Title": {
+            "Add": "教員追加",
+            "Update": "教員更新",
+            "List": "教員一覧"
+        },
+        "Fields": {
+            "FirstName": "名",
+            "LastName": "姓",
+            "Email": "メール",
+            "DOB": "生年月日",
+            "Gender": "性別",
+            "Mobile": "携帯番号",
+            "Qualification": "資格",
+            "College": "学校",
+            "Course": "コース",
+            "Subject": "科目"
+        }
+    },
+    "Student": {
+        "Title": {
+            "Add": "学生追加",
+            "Update": "学生更新",
+            "List": "学生一覧"
+        },
+        "Fields": {
+            "EnrollNo": "登録番号",
+            "FirstName": "名",
+            "LastName": "姓",
+            "Email": "メール",
+            "DOB": "生年月日",
+            "College": "学校",
+            "Mobile": "携帯番号"
+        }
+    },
+    "Role": {
+        "Title": {
+            "Add": "役割追加",
+            "Update": "役割更新",
+            "List": "役割一覧"
+        },
+        "Fields": {
+            "Name": "名前",
+            "Description": "説明"
+        }
+    },
+    "Subject": {
+        "Title": {
+            "Add": "科目追加",
+            "Update": "科目更新",
+            "List": "科目一覧"
+        },
+        "Fields": {
+            "Name": "名前",
+            "Course": "コース",
+            "Description": "説明"
+        }
+    },
+    "Timetable": {
+        "Title": {
+            "Add": "時間割追加",
+            "Update": "時間割更新",
+            "List": "時間割一覧"
+        },
+        "Fields": {
+            "Course": "コース",
+            "Subject": "科目",
+            "Semester": "学期",
+            "ExamDate": "試験日",
+            "ExamTime": "試験時間",
+            "Description": "説明"
+        }
+    },
+    "Marksheet": {
+        "Title": {
+            "Add": "成績追加",
+            "Update": "成績更新",
+            "List": "成績一覧"
+        },
+        "Fields": {
+            "RollNo": "ロール番号",
+            "Name": "名前",
+            "Physics": "物理",
+            "Chemistry": "化学",
+            "Maths": "数学",
+            "Total": "合計",
+            "Percentage": "パーセンテージ"
+        }
+    },
+    "Links": {
+        "Dashboard": "ダッシュボード",
+        "MyProfile": "マイプロフィール",
+        "ChangePassword": "パスワード変更",
+        "AddUser": "ユーザー追加",
+        "UserList": "ユーザー一覧",
+        "AddRole": "役割追加",
+        "RoleList": "役割一覧",
+        "AddCollege": "学校追加",
+        "CollegeList": "学校一覧",
+        "AddStudent": "学生追加",
+        "StudentList": "学生一覧",
+        "AddMarksheet": "成績追加",
+        "MarksheetList": "成績一覧",
+        "AddCourse": "コース追加",
+        "CourseList": "コース一覧",
+        "AddSubject": "科目追加",
+        "SubjectList": "科目一覧",
+        "AddTimetable": "時間割追加",
+        "TimetableList": "時間割一覧",
+        "AddFaculty": "教員追加",
+        "FacultyList": "教員一覧",
+        "Logout": "ログアウト",
+        "Login": "ログイン",
+        "ForgetPassword": "パスワードをお忘れですか？",
+        "MarksheetMeritList": "成績優秀者一覧",
+        "GetMarksheet": "成績取得"
+    },
+    "Greetings": {
+        "HiUser": "こんにちは、{{name}} ({{role}})",
+        "HiGuest": "こんにちは、ゲスト"
+    },
+    "LocaleSelect": {
+        "Select": "-------選択-------",
+        "English": "英語",
+        "Hindi": "ヒンディー語",
+        "Marathi": "マラーティー語",
+        "Japanese": "日本語",
+        "German": "ドイツ語",
+        "Russian": "ロシア語"
+    },
+    "Button": {
+        "SignIn": "サインイン",
+        "SignUp": "サインアップ"
+    }
+}

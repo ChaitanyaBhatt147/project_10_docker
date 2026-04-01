@@ -1,0 +1,187 @@
+<style>
+    .hm {
+        background-image: url('assets/img/addPage.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .card-style {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 12px;
+    }
+
+    .form-container {
+        max-width: 550px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-7 form-container">
+
+                <div class="card card-style grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ form.data.id > 0 
+                                ? ('Student.Title.Update' | translate) 
+                                : ('Student.Title.Add' | translate) }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                            </div>
+                        </div>
+
+                        <!-- ENROL NO -->
+                        <label class="form-label">{{'Student.Fields.EnrollNo' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                            <input type="text" class="form-control"
+                                   [ngClass]="{'is-invalid': form.inputerror.enrolNo}"
+                                   [(ngModel)]="form.data.enrolNo"
+                                   name="enrolNo"
+                                   placeholder="Enter Enrol No">
+                        </div>
+                        <div class="error-text">{{form.inputerror.enrolNo}}</div>
+
+                        <!-- FIRST NAME -->
+                        <label class="form-label">{{'Student.Fields.FirstName' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control"
+                                   [ngClass]="{'is-invalid': form.inputerror.firstName}"
+                                   [(ngModel)]="form.data.firstName"
+                                   name="firstName"
+                                   placeholder="Enter First Name">
+                        </div>
+                        <div class="error-text">{{form.inputerror.firstName}}</div>
+
+                        <!-- LAST NAME -->
+                        <label class="form-label">{{'Student.Fields.LastName' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control"
+                                   [ngClass]="{'is-invalid': form.inputerror.lastName}"
+                                   [(ngModel)]="form.data.lastName"
+                                   name="lastName"
+                                   placeholder="Enter Last Name">
+                        </div>
+                        <div class="error-text">{{form.inputerror.lastName}}</div>
+
+                        <!-- EMAIL -->
+                        <label class="form-label">{{'Student.Fields.Email' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            <input type="email" class="form-control"
+                                   [ngClass]="{'is-invalid': form.inputerror.email}"
+                                   [(ngModel)]="form.data.email"
+                                   name="email"
+                                   placeholder="Enter Email ID">
+                        </div>
+                        <div class="error-text">{{form.inputerror.email}}</div>
+
+                        <!-- DOB -->
+                        <label class="form-label">{{'Student.Fields.DOB' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            <input type="date" class="form-control"
+                                   [(ngModel)]="form.data.dob"
+                                   [ngModel]="form.data.dob | date:'yyyy-MM-dd'"
+                                   name="dob">
+                        </div>
+                        <div class="error-text">{{form.inputerror.dob}}</div>
+
+                        <!-- COLLEGE -->
+                        <label class="form-label">{{'Student.Fields.College' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-university"></i></span>
+                            <select class="form-control"
+                                    [ngClass]="{'is-invalid': form.inputerror.collegeId}"
+                                    [(ngModel)]="form.data.collegeId"
+                                    name="collegeId">
+                                <option value="undefined">{{'Common.Select' | translate}}</option>
+                                <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="error-text">{{form.inputerror.collegeId}}</div>
+
+                        <!-- MOBILE -->
+                        <label class="form-label">{{'Student.Fields.Mobile' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <input type="text" class="form-control"
+                                   maxlength="10"
+                                   [ngClass]="{'is-invalid': form.inputerror.phoneNo}"
+                                   [(ngModel)]="form.data.phoneNo"
+                                   name="phoneNo"
+                                   placeholder="Enter Mobile No">
+                        </div>
+                        <div class="error-text">{{form.inputerror.phoneNo}}</div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button class="btn btn-success me-2 px-4 shadow"
+                                    *ngIf="!form.data.id"
+                                    (click)="submit()">
+                                {{'Common.Save' | translate}}
+                            </button>
+
+                            <button class="btn btn-warning me-2 px-4 shadow"
+                                    *ngIf="!form.data.id"
+                                    (click)="reset()">
+                                {{'Common.Reset' | translate}}
+                            </button>
+
+                            <button class="btn btn-success me-2 px-4 shadow"
+                                    *ngIf="form.data.id"
+                                    (click)="submit()">
+                                {{'Common.Update' | translate}}
+                            </button>
+
+                            <button class="btn btn-primary px-4 shadow"
+                                    *ngIf="form.data.id"
+                                    (click)="forward('/studentlist')">
+                                {{'Common.Back' | translate}}
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,166 @@
+<style>
+    .hm {
+        background-image: url('assets/img/list.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 85px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .text {
+        text-align: center;
+    }
+
+    .table tbody tr {
+        font-weight: bold;
+    }
+</style>
+
+<div class="hm">
+
+    <div class="container-fluid">
+
+        <!-- TITLE -->
+        <div class="text-center pt-3">
+            <h1 class="fw-bold text-dark">
+                <u>{{'Course.Title.List' | translate}}</u>
+            </h1>
+        </div>
+
+        <!-- MESSAGE -->
+        <div *ngIf="form.error" class="alert alert-danger text-center">
+            {{form.message}}
+        </div>
+
+        <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+            {{form.message}}
+        </div>
+
+        <!-- SEARCH -->
+        <div class="row mt-3" *ngIf="form.list.length > 0">
+
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-3">
+                <input type="text"
+                       class="form-control"
+                       [(ngModel)]="form.searchParams.name"
+                       placeholder="Enter Course Name">
+            </div>
+
+            <div class="col-sm-3">
+                <button class="btn btn-primary me-2" (click)="search()">
+                    {{'Common.Search' | translate}}
+                </button>
+
+                <button class="btn btn-dark" (click)="reset()">
+                    {{'Common.Reset' | translate}}
+                </button>
+            </div>
+
+            <div class="col-sm-2"></div>
+        </div>
+
+        <br>
+
+        <!-- TABLE -->
+        <div class="table-responsive" *ngIf="form.list.length > 0">
+
+            <table class="table table-bordered table-striped table-hover">
+
+                <thead>
+                    <tr style="background-color:#f79d65; font-size:18px;">
+
+                        <th>
+                            <input type="checkbox"
+                                   [(ngModel)]="isMasterSel"
+                                   (change)="checkUncheckAll($event)">
+                            {{'Common.SelectAll' | translate}}
+                        </th>
+
+                        <th class="text">{{'Common.SNo' | translate}}</th>
+                        <th class="text">{{'Course.Fields.Name' | translate}}</th>
+                        <th class="text">{{'Course.Fields.Duration' | translate}}</th>
+                        <th class="text">{{'Course.Fields.Description' | translate}}</th>
+                        <th class="text">{{'Common.Edit' | translate}}</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let m of form.list; let i = index">
+
+                        <td class="text">
+                            <input #checkboxes
+                                   type="checkbox"
+                                   (change)="checklistUpdate()"
+                                   [id]="m.id"
+                                   [value]="m.id">
+                        </td>
+
+                        <td class="text">{{(form.pageNo*5)+i+1}}</td>
+                        <td class="text">{{m.name}}</td>
+                        <td class="text">{{m.duration}}</td>
+                        <td class="text">{{m.description}}</td>
+
+                        <td class="text">
+                            <a (click)="forward('/course/' + m.id)" style="cursor:pointer;">
+                                {{'Common.Edit' | translate}}
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <!-- BUTTONS -->
+        <table width="100%" *ngIf="form.list.length > 0">
+            <tr>
+
+                <td>
+                    <button class="btn btn-warning"
+                            (click)="previous()"
+                            [disabled]="form.pageNo == 0">
+                        {{'Common.Previous' | translate}}
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-primary"
+                            (click)="forward('/course')">
+                        {{'Common.New' | translate}}
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-danger"
+                            (click)="deleteMany()">
+                        {{'Common.Delete' | translate}}
+                    </button>
+                </td>
+
+                <td align="right">
+                    <button class="btn btn-warning"
+                            (click)="next()"
+                            [disabled]="form.nextListSize == 0">
+                        {{'Common.Next' | translate}}
+                    </button>
+                </td>
+
+            </tr>
+        </table>
+
+        <!-- BACK -->
+        <div class="text-center mt-3" *ngIf="form.list.length == 0">
+            <button class="btn btn-primary" (click)="reset()">
+                {{'Common.Back' | translate}}
+            </button>
+        </div>
+
+    </div>
+
+</div>

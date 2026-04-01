@@ -1,0 +1,235 @@
+{
+    "Common": {
+        "Search": "Поиск",
+        "Reset": "Сброс",
+        "Save": "Сохранить",
+        "Update": "Обновить",
+        "Delete": "Удалить",
+        "New": "Новый",
+        "Next": "Далее",
+        "Previous": "Назад",
+        "Back": "Вернуться",
+        "Edit": "Редактировать",
+        "Select": "------------Выбрать------------",
+        "SNo": "№",
+        "SelectAll": "Выбрать все",
+        "Title": {
+            "User": "Пользователь",
+            "College": "Колледж",
+            "Course": "Курс",
+            "Faculty": "Преподаватель",
+            "Student": "Студент",
+            "Role": "Роль",
+            "Subject": "Предмет",
+            "Timetable": "Расписание",
+            "Marksheet": "Оценки"
+        }
+    },
+    "GenderOptions": {
+        "Male": "Мужчина",
+        "Female": "Женщина"
+    },
+    "Auth": {
+        "Login": "Вход",
+        "SignIn": "Войти",
+        "SignUp": "Регистрация",
+        "ForgotPassword": "Забыли пароль?",
+        "ChangePassword": "Сменить пароль",
+        "OldPassword": "Старый пароль",
+        "NewPassword": "Новый пароль"
+    },
+    "User": {
+        "Title": {
+            "Add": "Добавить пользователя",
+            "Update": "Обновить пользователя",
+            "List": "Список пользователей",
+            "Profile": "Мой профиль"
+        },
+        "Fields": {
+            "FirstName": "Имя",
+            "LastName": "Фамилия",
+            "LoginId": "Логин",
+            "Password": "Пароль",
+            "DOB": "Дата рождения",
+            "Gender": "Пол",
+            "Role": "Роль",
+            "Mobile": "Мобильный",
+            "Status": "Статус",
+            "AlternateMobile": "Альтернативный мобильный",
+            "ProfileImage": "Изображение профиля"
+        },
+        "Placeholders": {
+            "FirstName": "Введите имя",
+            "LastName": "Введите фамилию",
+            "LoginId": "Введите логин",
+            "Password": "Введите пароль",
+            "Mobile": "Введите мобильный номер",
+            "AlternateMobile": "Введите альтернативный мобильный номер"
+        },
+        "SelectOptions": {
+            "Active": "Активный",
+            "Inactive": "Неактивный"
+        }
+    },
+    "College": {
+        "Title": {
+            "Add": "Добавить колледж",
+            "Update": "Обновить колледж",
+            "List": "Список колледжей"
+        },
+        "Fields": {
+            "Name": "Название",
+            "Address": "Адрес",
+            "State": "Регион",
+            "City": "Город",
+            "Phone": "Телефон"
+        }
+    },
+    "Course": {
+        "Title": {
+            "Add": "Добавить курс",
+            "Update": "Обновить курс",
+            "List": "Список курсов"
+        },
+        "Fields": {
+            "Name": "Название",
+            "Duration": "Длительность",
+            "Description": "Описание"
+        }
+    },
+    "Faculty": {
+        "Title": {
+            "Add": "Добавить преподавателя",
+            "Update": "Обновить преподавателя",
+            "List": "Список преподавателей"
+        },
+        "Fields": {
+            "FirstName": "Имя",
+            "LastName": "Фамилия",
+            "Email": "Электронная почта",
+            "DOB": "Дата рождения",
+            "Gender": "Пол",
+            "Mobile": "Мобильный",
+            "Qualification": "Квалификация",
+            "College": "Колледж",
+            "Course": "Курс",
+            "Subject": "Предмет"
+        }
+    },
+    "Student": {
+        "Title": {
+            "Add": "Добавить студента",
+            "Update": "Обновить студента",
+            "List": "Список студентов"
+        },
+        "Fields": {
+            "EnrollNo": "Регистрационный номер",
+            "FirstName": "Имя",
+            "LastName": "Фамилия",
+            "Email": "Электронная почта",
+            "DOB": "Дата рождения",
+            "College": "Колледж",
+            "Mobile": "Мобильный"
+        }
+    },
+    "Role": {
+        "Title": {
+            "Add": "Добавить роль",
+            "Update": "Обновить роль",
+            "List": "Список ролей"
+        },
+        "Fields": {
+            "Name": "Название",
+            "Description": "Описание"
+        }
+    },
+    "Subject": {
+        "Title": {
+            "Add": "Добавить предмет",
+            "Update": "Обновить предмет",
+            "List": "Список предметов"
+        },
+        "Fields": {
+            "Name": "Название",
+            "Course": "Курс",
+            "Description": "Описание"
+        }
+    },
+    "Timetable": {
+        "Title": {
+            "Add": "Добавить расписание",
+            "Update": "Обновить расписание",
+            "List": "Список расписаний"
+        },
+        "Fields": {
+            "Course": "Курс",
+            "Subject": "Предмет",
+            "Semester": "Семестр",
+            "ExamDate": "Дата экзамена",
+            "ExamTime": "Время экзамена",
+            "Description": "Описание"
+        }
+    },
+    "Marksheet": {
+        "Title": {
+            "Add": "Добавить оценки",
+            "Update": "Обновить оценки",
+            "List": "Список оценок"
+        },
+        "Fields": {
+            "RollNo": "Номер",
+            "Name": "Имя",
+            "Physics": "Физика",
+            "Chemistry": "Химия",
+            "Maths": "Математика",
+
+            "Total": "Итого",
+            "Percentage": "Процент"
+        }
+    },
+    "Links": {
+        "Dashboard": "Панель управления",
+        "MyProfile": "Мой профиль",
+        "ChangePassword": "Сменить пароль",
+        "AddUser": "Добавить пользователя",
+        "UserList": "Список пользователей",
+        "AddRole": "Добавить роль",
+        "RoleList": "Список ролей",
+        "AddCollege": "Добавить колледж",
+        "CollegeList": "Список колледжей",
+        "AddStudent": "Добавить студента",
+        "StudentList": "Список студентов",
+        "AddMarksheet": "Добавить оценки",
+        "MarksheetList": "Список оценок",
+        "AddCourse": "Добавить курс",
+        "CourseList": "Список курсов",
+        "AddSubject": "Добавить предмет",
+        "SubjectList": "Список предметов",
+        "AddTimetable": "Добавить расписание",
+        "TimetableList": "Список расписаний",
+        "AddFaculty": "Добавить преподавателя",
+        "FacultyList": "Список преподавателей",
+        "Logout": "Выйти",
+        "Login": "Вход",
+        "ForgetPassword": "Забыли пароль?",
+        "MarksheetMeritList": "Список лучших",
+        "GetMarksheet": "Получить оценки"
+    },
+    "Greetings": {
+        "HiUser": "Здравствуйте, {{name}} ({{role}})",
+        "HiGuest": "Здравствуйте, гость"
+    },
+    "LocaleSelect": {
+        "Select": "-------Выбрать-------",
+        "English": "Английский",
+        "Hindi": "Хинди",
+        "Marathi": "Маратхи",
+        "Japanese": "Японский",
+        "German": "Немецкий",
+        "Russian": "Русский"
+    },
+    "Button": {
+        "SignIn": "Войти",
+        "SignUp": "Регистрация"
+    }
+}

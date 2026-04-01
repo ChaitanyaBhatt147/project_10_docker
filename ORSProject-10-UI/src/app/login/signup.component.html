@@ -1,0 +1,153 @@
+<style>
+    .hm {
+        background-image: url('assets/img/userRegistration.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .card-style {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 10px;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 form-container">
+
+                <div class="card card-style grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ 'Auth.SignUp' | translate }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                            </div>
+                        </div>
+
+                        <!-- FIRST NAME -->
+                        <label class="form-label">
+                            {{'User.Fields.FirstName' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                            [(ngModel)]="form.data.firstName"
+                            name="firstName"
+                            [placeholder]="'User.Placeholders.FirstName' | translate">
+                        <div class="error-text">{{form.inputerror.firstName}}</div>
+
+                        <!-- LAST NAME -->
+                        <label class="form-label">
+                            {{'User.Fields.LastName' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                            [(ngModel)]="form.data.lastName"
+                            name="lastName"
+                            [placeholder]="'User.Placeholders.LastName' | translate">
+                        <div class="error-text">{{form.inputerror.lastName}}</div>
+
+                        <!-- LOGIN -->
+                        <label class="form-label">
+                            {{'User.Fields.LoginId' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                            [(ngModel)]="form.data.loginId"
+                            name="loginId"
+                            [placeholder]="'User.Placeholders.LoginId' | translate">
+                        <div class="error-text">{{form.inputerror.loginId}}</div>
+
+                        <!-- PASSWORD -->
+                        <label class="form-label">
+                            {{'User.Fields.Password' | translate}} *
+                        </label>
+                        <input type="password" class="form-control mb-2"
+                            [(ngModel)]="form.data.password"
+                            name="password"
+                            [placeholder]="'User.Placeholders.Password' | translate">
+                        <div class="error-text">{{form.inputerror.password}}</div>
+
+                        <!-- DOB -->
+                        <label class="form-label">
+                            {{'User.Fields.DOB' | translate}} *
+                        </label>
+                        <input type="date" class="form-control mb-2"
+                            [(ngModel)]="form.data.dob"
+                            [ngModel]="form.data.dob | date:'yyyy-MM-dd'"
+                            name="dob">
+                        <div class="error-text">{{form.inputerror.dob}}</div>
+
+                        <!-- GENDER -->
+                        <label class="form-label">
+                            {{'User.Fields.Gender' | translate}} *
+                        </label>
+                        <select class="form-control mb-2"
+                            [(ngModel)]="form.data.gender"
+                            name="gender">
+                            <option value="undefined">{{'Common.Select' | translate}}</option>
+                            <option value="Male">{{'GenderOptions.Male' | translate}}</option>
+                            <option value="Female">{{'GenderOptions.Female' | translate}}</option>
+                        </select>
+                        <div class="error-text">{{form.inputerror.gender}}</div>
+
+                        <!-- MOBILE -->
+                        <label class="form-label">
+                            {{'User.Fields.Mobile' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                            [(ngModel)]="form.data.phone"
+                            name="phone"
+                            maxlength="10"
+                            [placeholder]="'User.Placeholders.Mobile' | translate">
+                        <div class="error-text">{{form.inputerror.phone}}</div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+                            <button class="btn btn-success me-2" (click)="signUp()">
+                                {{'Auth.SignUp' | translate}}
+                            </button>
+
+                            <button class="btn btn-warning" (click)="reset()">
+                                {{'Common.Reset' | translate}}
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

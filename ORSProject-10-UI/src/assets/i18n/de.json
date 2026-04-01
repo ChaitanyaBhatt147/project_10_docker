@@ -1,0 +1,234 @@
+{
+    "Common": {
+        "Search": "Suchen",
+        "Reset": "Zurücksetzen",
+        "Save": "Speichern",
+        "Update": "Aktualisieren",
+        "Delete": "Löschen",
+        "New": "Neu",
+        "Next": "Weiter",
+        "Previous": "Zurück",
+        "Back": "Zurück",
+        "Edit": "Bearbeiten",
+        "Select": "------------Auswählen------------",
+        "SNo": "Nr.",
+        "SelectAll": "Alle auswählen",
+        "Title": {
+            "User": "Benutzer",
+            "College": "Hochschule",
+            "Course": "Kurs",
+            "Faculty": "Dozent",
+            "Student": "Student",
+            "Role": "Rolle",
+            "Subject": "Fach",
+            "Timetable": "Stundenplan",
+            "Marksheet": "Noten"
+        }
+    },
+    "GenderOptions": {
+        "Male": "Männlich",
+        "Female": "Weiblich"
+    },
+    "Auth": {
+        "Login": "Anmelden",
+        "SignIn": "Einloggen",
+        "SignUp": "Registrieren",
+        "ForgotPassword": "Passwort vergessen?",
+        "ChangePassword": "Passwort ändern",
+        "OldPassword": "Altes Passwort",
+        "NewPassword": "Neues Passwort"
+    },
+    "User": {
+        "Title": {
+            "Add": "Benutzer hinzufügen",
+            "Update": "Benutzer aktualisieren",
+            "List": "Benutzerliste",
+            "Profile": "Mein Profil"
+        },
+        "Fields": {
+            "FirstName": "Vorname",
+            "LastName": "Nachname",
+            "LoginId": "Login-ID",
+            "Password": "Passwort",
+            "DOB": "Geburtsdatum",
+            "Gender": "Geschlecht",
+            "Role": "Rolle",
+            "Mobile": "Mobilnummer",
+            "Status": "Status",
+            "AlternateMobile": "Alternative Mobilnummer",
+            "ProfileImage": "Profilbild"
+        },
+        "Placeholders": {
+            "FirstName": "Geben Sie den Vornamen ein",
+            "LastName": "Geben Sie den Nachnamen ein",
+            "LoginId": "Geben Sie die Login-ID ein",
+            "Password": "Geben Sie das Passwort ein",
+            "Mobile": "Geben Sie die Mobilnummer ein",
+            "AlternateMobile": "Geben Sie die alternative Mobilnummer ein"
+        },
+        "SelectOptions": {
+            "Active": "Aktiv",
+            "Inactive": "Inaktiv"
+        }
+    },
+    "College": {
+        "Title": {
+            "Add": "Hochschule hinzufügen",
+            "Update": "Hochschule aktualisieren",
+            "List": "Hochschulliste"
+        },
+        "Fields": {
+            "Name": "Name",
+            "Address": "Adresse",
+            "State": "Bundesland",
+            "City": "Stadt",
+            "Phone": "Telefon"
+        }
+    },
+    "Course": {
+        "Title": {
+            "Add": "Kurs hinzufügen",
+            "Update": "Kurs aktualisieren",
+            "List": "Kursliste"
+        },
+        "Fields": {
+            "Name": "Name",
+            "Duration": "Dauer",
+            "Description": "Beschreibung"
+        }
+    },
+    "Faculty": {
+        "Title": {
+            "Add": "Dozent hinzufügen",
+            "Update": "Dozent aktualisieren",
+            "List": "Dozentenliste"
+        },
+        "Fields": {
+            "FirstName": "Vorname",
+            "LastName": "Nachname",
+            "Email": "E-Mail",
+            "DOB": "Geburtsdatum",
+            "Gender": "Geschlecht",
+            "Mobile": "Mobilnummer",
+            "Qualification": "Qualifikation",
+            "College": "Hochschule",
+            "Course": "Kurs",
+            "Subject": "Fach"
+        }
+    },
+    "Student": {
+        "Title": {
+            "Add": "Student hinzufügen",
+            "Update": "Student aktualisieren",
+            "List": "Studentenliste"
+        },
+        "Fields": {
+            "EnrollNo": "Matrikelnummer",
+            "FirstName": "Vorname",
+            "LastName": "Nachname",
+            "Email": "E-Mail",
+            "DOB": "Geburtsdatum",
+            "College": "Hochschule",
+            "Mobile": "Mobilnummer"
+        }
+    },
+    "Role": {
+        "Title": {
+            "Add": "Rolle hinzufügen",
+            "Update": "Rolle aktualisieren",
+            "List": "Rollenliste"
+        },
+        "Fields": {
+            "Name": "Name",
+            "Description": "Beschreibung"
+        }
+    },
+    "Subject": {
+        "Title": {
+            "Add": "Fach hinzufügen",
+            "Update": "Fach aktualisieren",
+            "List": "Fächerliste"
+        },
+        "Fields": {
+            "Name": "Name",
+            "Course": "Kurs",
+            "Description": "Beschreibung"
+        }
+    },
+    "Timetable": {
+        "Title": {
+            "Add": "Stundenplan hinzufügen",
+            "Update": "Stundenplan aktualisieren",
+            "List": "Stundenplanliste"
+        },
+        "Fields": {
+            "Course": "Kurs",
+            "Subject": "Fach",
+            "Semester": "Semester",
+            "ExamDate": "Prüfungsdatum",
+            "ExamTime": "Prüfungszeit",
+            "Description": "Beschreibung"
+        }
+    },
+    "Marksheet": {
+        "Title": {
+            "Add": "Noten hinzufügen",
+            "Update": "Noten aktualisieren",
+            "List": "Notenliste"
+        },
+        "Fields": {
+            "RollNo": "Rollnummer",
+            "Name": "Name",
+            "Physics": "Physik",
+            "Chemistry": "Chemie",
+            "Maths": "Mathematik",
+            "Total": "Gesamt",
+            "Percentage": "Prozentsatz"
+        }
+    },
+    "Links": {
+        "Dashboard": "Dashboard",
+        "MyProfile": "Mein Profil",
+        "ChangePassword": "Passwort ändern",
+        "AddUser": "Benutzer hinzufügen",
+        "UserList": "Benutzerliste",
+        "AddRole": "Rolle hinzufügen",
+        "RoleList": "Rollenliste",
+        "AddCollege": "Hochschule hinzufügen",
+        "CollegeList": "Hochschulliste",
+        "AddStudent": "Student hinzufügen",
+        "StudentList": "Studentenliste",
+        "AddMarksheet": "Noten hinzufügen",
+        "MarksheetList": "Notenliste",
+        "AddCourse": "Kurs hinzufügen",
+        "CourseList": "Kursliste",
+        "AddSubject": "Fach hinzufügen",
+        "SubjectList": "Fächerliste",
+        "AddTimetable": "Stundenplan hinzufügen",
+        "TimetableList": "Stundenplanliste",
+        "AddFaculty": "Dozent hinzufügen",
+        "FacultyList": "Dozentenliste",
+        "Logout": "Abmelden",
+        "Login": "Anmelden",
+        "ForgetPassword": "Passwort vergessen?",
+        "MarksheetMeritList": "Bestenliste",
+        "GetMarksheet": "Noten anzeigen"
+    },
+    "Greetings": {
+        "HiUser": "Hallo, {{name}} ({{role}})",
+        "HiGuest": "Hallo, Gast"
+    },
+    "LocaleSelect": {
+        "Select": "-------Auswählen-------",
+        "English": "Englisch",
+        "Hindi": "Hindi",
+        "Marathi": "Marathi",
+        "Japanese": "Japanisch",
+        "German": "Deutsch",
+        "Russian": "Russisch"
+    },
+    "Button": {
+        "SignIn": "Anmelden",
+        "SignUp": "Registrieren"
+    }
+}

@@ -1,0 +1,234 @@
+{
+    "Common": {
+        "Search": "खोजें",
+        "Reset": "रीसेट करें",
+        "Save": "सहेजें",
+        "Update": "अपडेट करें",
+        "Delete": "हटाएँ",
+        "New": "नया",
+        "Next": "आगे",
+        "Previous": "पीछे",
+        "Back": "वापस",
+        "Edit": "संपादित करें",
+        "Select": "------------चुनें------------",
+        "SNo": "क्रमांक",
+        "SelectAll": "सभी चुनें",
+        "Title": {
+            "User": "उपयोगकर्ता",
+            "College": "कॉलेज",
+            "Course": "कोर्स",
+            "Faculty": "फैकल्टी",
+            "Student": "छात्र",
+            "Role": "भूमिका",
+            "Subject": "विषय",
+            "Timetable": "समय सारणी",
+            "Marksheet": "मार्कशीट"
+        }
+    },
+    "GenderOptions": {
+        "Male": "पुरुष",
+        "Female": "महिला"
+    },
+    "Auth": {
+        "Login": "लॉगिन",
+        "SignIn": "साइन इन",
+        "SignUp": "साइन अप",
+        "ForgotPassword": "क्या आप अपना पासवर्ड भूल गए?",
+        "ChangePassword": "पासवर्ड बदलें",
+        "OldPassword": "पुराना पासवर्ड",
+        "NewPassword": "नया पासवर्ड"
+    },
+    "User": {
+        "Title": {
+            "Add": "उपयोगकर्ता जोड़ें",
+            "Update": "उपयोगकर्ता अपडेट करें",
+            "List": "उपयोगकर्ता सूची",
+            "Profile": "मेरा प्रोफ़ाइल"
+        },
+        "Fields": {
+            "FirstName": "पहला नाम",
+            "LastName": "अंतिम नाम",
+            "LoginId": "लॉगिन आईडी",
+            "Password": "पासवर्ड",
+            "DOB": "जन्म तिथि",
+            "Gender": "लिंग",
+            "Role": "भूमिका",
+            "Mobile": "मोबाइल",
+            "Status": "स्थिति",
+            "AlternateMobile": "वैकल्पिक मोबाइल",
+            "ProfileImage": "प्रोफ़ाइल छवि"
+        },
+        "Placeholders": {
+            "FirstName": "पहला नाम दर्ज करें",
+            "LastName": "अंतिम नाम दर्ज करें",
+            "LoginId": "लॉगिन आईडी दर्ज करें",
+            "Password": "पासवर्ड दर्ज करें",
+            "Mobile": "मोबाइल नंबर दर्ज करें",
+            "AlternateMobile": "वैकल्पिक मोबाइल नंबर दर्ज करें"
+        },
+        "SelectOptions": {
+            "Active": "सक्रिय",
+            "Inactive": "निष्क्रिय"
+        }
+    },
+    "College": {
+        "Title": {
+            "Add": "कॉलेज जोड़ें",
+            "Update": "कॉलेज अपडेट करें",
+            "List": "कॉलेज सूची"
+        },
+        "Fields": {
+            "Name": "नाम",
+            "Address": "पता",
+            "State": "राज्य",
+            "City": "शहर",
+            "Phone": "फोन"
+        }
+    },
+    "Course": {
+        "Title": {
+            "Add": "कोर्स जोड़ें",
+            "Update": "कोर्स अपडेट करें",
+            "List": "कोर्स सूची"
+        },
+        "Fields": {
+            "Name": "नाम",
+            "Duration": "अवधि",
+            "Description": "विवरण"
+        }
+    },
+    "Faculty": {
+        "Title": {
+            "Add": "फैकल्टी जोड़ें",
+            "Update": "फैकल्टी अपडेट करें",
+            "List": "फैकल्टी सूची"
+        },
+        "Fields": {
+            "FirstName": "पहला नाम",
+            "LastName": "अंतिम नाम",
+            "Email": "ईमेल",
+            "DOB": "जन्म तिथि",
+            "Gender": "लिंग",
+            "Mobile": "मोबाइल",
+            "Qualification": "योग्यता",
+            "College": "कॉलेज",
+            "Course": "कोर्स",
+            "Subject": "विषय"
+        }
+    },
+    "Student": {
+        "Title": {
+            "Add": "छात्र जोड़ें",
+            "Update": "छात्र अपडेट करें",
+            "List": "छात्र सूची"
+        },
+        "Fields": {
+            "EnrollNo": "नामांकन संख्या",
+            "FirstName": "पहला नाम",
+            "LastName": "अंतिम नाम",
+            "Email": "ईमेल",
+            "DOB": "जन्म तिथि",
+            "College": "कॉलेज",
+            "Mobile": "मोबाइल"
+        }
+    },
+    "Role": {
+        "Title": {
+            "Add": "भूमिका जोड़ें",
+            "Update": "भूमिका अपडेट करें",
+            "List": "भूमिका सूची"
+        },
+        "Fields": {
+            "Name": "नाम",
+            "Description": "विवरण"
+        }
+    },
+    "Subject": {
+        "Title": {
+            "Add": "विषय जोड़ें",
+            "Update": "विषय अपडेट करें",
+            "List": "विषय सूची"
+        },
+        "Fields": {
+            "Name": "नाम",
+            "Course": "कोर्स",
+            "Description": "विवरण"
+        }
+    },
+    "Timetable": {
+        "Title": {
+            "Add": "टाइमटेबल जोड़ें",
+            "Update": "टाइमटेबल अपडेट करें",
+            "List": "टाइमटेबल सूची"
+        },
+        "Fields": {
+            "Course": "कोर्स",
+            "Subject": "विषय",
+            "Semester": "सेमेस्टर",
+            "ExamDate": "परीक्षा तिथि",
+            "ExamTime": "परीक्षा समय",
+            "Description": "विवरण"
+        }
+    },
+    "Marksheet": {
+        "Title": {
+            "Add": "मार्कशीट जोड़ें",
+            "Update": "मार्कशीट अपडेट करें",
+            "List": "मार्कशीट सूची"
+        },
+        "Fields": {
+            "RollNo": "रोल नंबर",
+            "Name": "नाम",
+            "Physics": "भौतिकी",
+            "Chemistry": "रसायन",
+            "Maths": "गणित",
+            "Total": "कुल",
+            "Percentage": "प्रतिशत"
+        }
+    },
+    "Links": {
+        "Dashboard": "डैशबोर्ड",
+        "MyProfile": "मेरा प्रोफ़ाइल",
+        "ChangePassword": "पासवर्ड बदलें",
+        "AddUser": "उपयोगकर्ता जोड़ें",
+        "UserList": "उपयोगकर्ता सूची",
+        "AddRole": "भूमिका जोड़ें",
+        "RoleList": "भूमिका सूची",
+        "AddCollege": "कॉलेज जोड़ें",
+        "CollegeList": "कॉलेज सूची",
+        "AddStudent": "छात्र जोड़ें",
+        "StudentList": "छात्र सूची",
+        "AddMarksheet": "मार्कशीट जोड़ें",
+        "MarksheetList": "मार्कशीट सूची",
+        "AddCourse": "कोर्स जोड़ें",
+        "CourseList": "कोर्स सूची",
+        "AddSubject": "विषय जोड़ें",
+        "SubjectList": "विषय सूची",
+        "AddTimetable": "टाइमटेबल जोड़ें",
+        "TimetableList": "टाइमटेबल सूची",
+        "AddFaculty": "फैकल्टी जोड़ें",
+        "FacultyList": "फैकल्टी सूची",
+        "Logout": "लॉगआउट",
+        "Login": "लॉगिन",
+        "ForgetPassword": "पासवर्ड भूल गए?",
+        "MarksheetMeritList": "मेरिट सूची",
+        "GetMarksheet": "मार्कशीट प्राप्त करें"
+    },
+    "Greetings": {
+        "HiUser": "नमस्ते, {{name}} ({{role}})",
+        "HiGuest": "नमस्ते, अतिथि"
+    },
+    "LocaleSelect": {
+        "Select": "-------चुनें-------",
+        "English": "अंग्रेज़ी",
+        "Hindi": "हिंदी",
+        "Marathi": "मराठी",
+        "Russian": "रूसी",
+        "Japanese": "जापानी",
+        "German": "जर्मन"
+    },
+    "Button": {
+        "SignIn": "साइन इन",
+        "SignUp": "साइन अप"
+    }
+}

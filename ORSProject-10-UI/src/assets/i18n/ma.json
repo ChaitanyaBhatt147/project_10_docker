@@ -1,0 +1,234 @@
+{
+  "Common": {
+    "Search": "शोधा",
+    "Reset": "रीसेट करा",
+    "Save": "जतन करा",
+    "Update": "अपडेट करा",
+    "Delete": "हटवा",
+    "New": "नवीन",
+    "Next": "पुढे",
+    "Previous": "मागे",
+    "Back": "परत",
+    "Edit": "संपादित करा",
+    "Select": "------------निवडा------------",
+    "SNo": "क्र.सं.",
+    "SelectAll": "सभी चुनें",
+    "Title": {
+      "User": "वापरकर्ता",
+      "College": "कॉलेज",
+      "Course": "कोर्स",
+      "Faculty": "फॅकल्टी",
+      "Student": "विद्यार्थी",
+      "Role": "भूमिका",
+      "Subject": "विषय",
+      "Timetable": "टाइमटेबल",
+      "Marksheet": "मार्कशीट"
+    }
+  },
+  "GenderOptions": {
+    "Male": "पुरुष",
+    "Female": "महिला"
+  },
+  "Auth": {
+    "Login": "लॉगिन",
+    "SignIn": "साइन इन",
+    "SignUp": "साइन अप",
+    "ForgotPassword": "पासवर्ड विसरलात का?",
+    "ChangePassword": "पासवर्ड बदला",
+    "OldPassword": "जुना पासवर्ड",
+    "NewPassword": "नवीन पासवर्ड"
+  },
+  "User": {
+    "Title": {
+      "Add": "वापरकर्ता जोडा",
+      "Update": "वापरकर्ता अपडेट करा",
+      "List": "वापरकर्ता यादी",
+      "Profile": "माझे प्रोफाइल"
+    },
+    "Fields": {
+      "FirstName": "पहिले नाव",
+      "LastName": "आडनाव",
+      "LoginId": "लॉगिन आयडी",
+      "Password": "पासवर्ड",
+      "DOB": "जन्मतारीख",
+      "Gender": "लिंग",
+      "Role": "भूमिका",
+      "Mobile": "मोबाईल",
+      "Status": "स्थिती",
+      "AlternateMobile": "वैकल्पिक मोबाइल",
+      "ProfileImage": "प्रोफाइल छवि"
+    },
+    "Placeholders": {
+      "FirstName": "पहिले नाव दर्ज करें",
+      "LastName": "आडनाव दर्ज करें",
+      "LoginId": "लॉगिन आयडी दर्ज करें",
+      "Password": "पासवर्ड दर्ज करें",
+      "Mobile": "मोबाईल नंबर दर्ज करें",
+      "AlternateMobile": "वैकल्पिक मोबाइल नंबर दर्ज करें"
+    },
+    "SelectOptions": {
+      "Active": "सक्रिय",
+      "Inactive": "निष्क्रिय"
+    }
+  },
+  "College": {
+    "Title": {
+      "Add": "कॉलेज जोडा",
+      "Update": "कॉलेज अपडेट करा",
+      "List": "कॉलेज यादी"
+    },
+    "Fields": {
+      "Name": "नाव",
+      "Address": "पत्ता",
+      "State": "राज्य",
+      "City": "शहर",
+      "Phone": "फोन"
+    }
+  },
+  "Course": {
+    "Title": {
+      "Add": "कोर्स जोडा",
+      "Update": "कोर्स अपडेट करा",
+      "List": "कोर्स यादी"
+    },
+    "Fields": {
+      "Name": "नाव",
+      "Duration": "कालावधी",
+      "Description": "वर्णन"
+    }
+  },
+  "Faculty": {
+    "Title": {
+      "Add": "फॅकल्टी जोडा",
+      "Update": "फॅकल्टी अपडेट करा",
+      "List": "फॅकल्टी यादी"
+    },
+    "Fields": {
+      "FirstName": "पहिले नाव",
+      "LastName": "आडनाव",
+      "Email": "ईमेल",
+      "DOB": "जन्मतारीख",
+      "Gender": "लिंग",
+      "Mobile": "मोबाईल",
+      "Qualification": "पात्रता",
+      "College": "कॉलेज",
+      "Course": "कोर्स",
+      "Subject": "विषय"
+    }
+  },
+  "Student": {
+    "Title": {
+      "Add": "विद्यार्थी जोडा",
+      "Update": "विद्यार्थी अपडेट करा",
+      "List": "विद्यार्थी यादी"
+    },
+    "Fields": {
+      "EnrollNo": "नोंदणी क्रमांक",
+      "FirstName": "पहिले नाव",
+      "LastName": "आडनाव",
+      "Email": "ईमेल",
+      "DOB": "जन्मतारीख",
+      "College": "कॉलेज",
+      "Mobile": "मोबाईल"
+    }
+  },
+  "Role": {
+    "Title": {
+      "Add": "भूमिका जोडा",
+      "Update": "भूमिका अपडेट करा",
+      "List": "भूमिका यादी"
+    },
+    "Fields": {
+      "Name": "नाव",
+      "Description": "वर्णन"
+    }
+  },
+  "Subject": {
+    "Title": {
+      "Add": "विषय जोडा",
+      "Update": "विषय अपडेट करा",
+      "List": "विषय यादी"
+    },
+    "Fields": {
+      "Name": "नाव",
+      "Course": "कोर्स",
+      "Description": "वर्णन"
+    }
+  },
+  "Timetable": {
+    "Title": {
+      "Add": "टाइमटेबल जोडा",
+      "Update": "टाइमटेबल अपडेट करा",
+      "List": "टाइमटेबल यादी"
+    },
+    "Fields": {
+      "Course": "कोर्स",
+      "Subject": "विषय",
+      "Semester": "सेमिस्टर",
+      "ExamDate": "परीक्षा तारीख",
+      "ExamTime": "परीक्षा वेळ",
+      "Description": "वर्णन"
+    }
+  },
+  "Marksheet": {
+    "Title": {
+      "Add": "मार्कशीट जोडा",
+      "Update": "मार्कशीट अपडेट करा",
+      "List": "मार्कशीट यादी"
+    },
+    "Fields": {
+      "RollNo": "रोल नंबर",
+      "Name": "नाव",
+      "Physics": "भौतिकशास्त्र",
+      "Chemistry": "रसायनशास्त्र",
+      "Maths": "गणित",
+      "Total": "कुल",
+      "Percentage": "प्रतिशत"
+    }
+  },
+  "Links": {
+    "Dashboard": "डॅशबोर्ड",
+    "MyProfile": "माझे प्रोफाइल",
+    "ChangePassword": "पासवर्ड बदला",
+    "AddUser": "वापरकर्ता जोडा",
+    "UserList": "वापरकर्ता यादी",
+    "AddRole": "भूमिका जोडा",
+    "RoleList": "भूमिका यादी",
+    "AddCollege": "कॉलेज जोडा",
+    "CollegeList": "कॉलेज यादी",
+    "AddStudent": "विद्यार्थी जोडा",
+    "StudentList": "विद्यार्थी यादी",
+    "AddMarksheet": "मार्कशीट जोडा",
+    "MarksheetList": "मार्कशीट यादी",
+    "AddCourse": "कोर्स जोडा",
+    "CourseList": "कोर्स यादी",
+    "AddSubject": "विषय जोडा",
+    "SubjectList": "विषय यादी",
+    "AddTimetable": "टाइमटेबल जोडा",
+    "TimetableList": "टाइमटेबल यादी",
+    "AddFaculty": "फॅकल्टी जोडा",
+    "FacultyList": "फॅकल्टी यादी",
+    "Logout": "लॉगआउट",
+    "Login": "लॉगिन",
+    "ForgetPassword": "पासवर्ड विसरलात का?",
+    "MarksheetMeritList": "मेरिट यादी",
+    "GetMarksheet": "मार्कशीट मिळवा"
+  },
+  "Greetings": {
+    "HiUser": "नमस्कार, {{name}} ({{role}})",
+    "HiGuest": "नमस्कार, पाहुणे"
+  },
+  "LocaleSelect": {
+    "Select": "-------निवडा-------",
+    "English": "इंग्रजी",
+    "Hindi": "हिंदी",
+    "Marathi": "मराठी",
+    "Russian": "रूसी",
+    "Japanese": "जापानी",
+    "German": "जर्मन"
+  },
+  "Button": {
+    "SignIn": "साइन इन",
+    "SignUp": "साइन अप"
+  }
+}

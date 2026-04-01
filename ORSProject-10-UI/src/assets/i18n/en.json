@@ -1,0 +1,234 @@
+{
+    "Common": {
+        "Search": "Search",
+        "Reset": "Reset",
+        "Save": "Save",
+        "Update": "Update",
+        "Delete": "Delete",
+        "New": "New",
+        "Next": "Next",
+        "Previous": "Previous",
+        "Back": "Back",
+        "Edit": "Edit",
+        "Select": "------------Select------------",
+        "SNo": "S.No.",
+        "SelectAll": "Select All",
+        "Title": {
+            "User": "User",
+            "College": "College",
+            "Course": "Course",
+            "Faculty": "Faculty",
+            "Student": "Student",
+            "Role": "Role",
+            "Subject": "Subject",
+            "Timetable": "Timetable",
+            "Marksheet": "Marksheet"
+        }
+    },
+    "GenderOptions": {
+        "Male": "Male",
+        "Female": "Female"
+    },
+    "Auth": {
+        "Login": "Login",
+        "SignIn": "Sign In",
+        "SignUp": "Sign Up",
+        "ForgotPassword": "Forget my password?",
+        "ChangePassword": "Change Password",
+        "OldPassword": "Old Password",
+        "NewPassword": "New Password"
+    },
+    "User": {
+        "Title": {
+            "Add": "Add User",
+            "Update": "Update User",
+            "List": "User List",
+            "Profile": "My Profile"
+        },
+        "Fields": {
+            "FirstName": "First Name",
+            "LastName": "Last Name",
+            "LoginId": "Login Id",
+            "Password": "Password",
+            "DOB": "Date of Birth",
+            "Gender": "Gender",
+            "Role": "Role",
+            "Mobile": "Mobile",
+            "Status": "Status",
+            "AlternateMobile": "Alternate Mobile",
+            "ProfileImage": "Profile Image"
+        },
+        "Placeholders": {
+            "FirstName": "Enter First Name",
+            "LastName": "Enter Last Name",
+            "LoginId": "Enter Login Id",
+            "Password": "Enter Password",
+            "Mobile": "Enter Mobile Number",
+            "AlternateMobile": "Enter Alternate Mobile Number"
+        },
+        "SelectOptions": {
+            "Active": "Active",
+            "Inactive": "Inactive"
+        }
+    },
+    "College": {
+        "Title": {
+            "Add": "Add College",
+            "Update": "Update College",
+            "List": "College List"
+        },
+        "Fields": {
+            "Name": "Name",
+            "Address": "Address",
+            "State": "State",
+            "City": "City",
+            "Phone": "Phone"
+        }
+    },
+    "Course": {
+        "Title": {
+            "Add": "Add Course",
+            "Update": "Update Course",
+            "List": "Course List"
+        },
+        "Fields": {
+            "Name": "Name",
+            "Duration": "Duration",
+            "Description": "Description"
+        }
+    },
+    "Faculty": {
+        "Title": {
+            "Add": "Add Faculty",
+            "Update": "Update Faculty",
+            "List": "Faculty List"
+        },
+        "Fields": {
+            "FirstName": "First Name",
+            "LastName": "Last Name",
+            "Email": "Email",
+            "DOB": "Date of Birth",
+            "Gender": "Gender",
+            "Mobile": "Mobile",
+            "Qualification": "Qualification",
+            "College": "College",
+            "Course": "Course",
+            "Subject": "Subject"
+        }
+    },
+    "Student": {
+        "Title": {
+            "Add": "Add Student",
+            "Update": "Update Student",
+            "List": "Student List"
+        },
+        "Fields": {
+            "EnrollNo": "Enroll No",
+            "FirstName": "First Name",
+            "LastName": "Last Name",
+            "Email": "Email",
+            "DOB": "Date of Birth",
+            "College": "College",
+            "Mobile": "Mobile"
+        }
+    },
+    "Role": {
+        "Title": {
+            "Add": "Add Role",
+            "Update": "Update Role",
+            "List": "Role List"
+        },
+        "Fields": {
+            "Name": "Name",
+            "Description": "Description"
+        }
+    },
+    "Subject": {
+        "Title": {
+            "Add": "Add Subject",
+            "Update": "Update Subject",
+            "List": "Subject List"
+        },
+        "Fields": {
+            "Name": "Name",
+            "Course": "Course",
+            "Description": "Description"
+        }
+    },
+    "Timetable": {
+        "Title": {
+            "Add": "Add Timetable",
+            "Update": "Update Timetable",
+            "List": "Timetable List"
+        },
+        "Fields": {
+            "Course": "Course",
+            "Subject": "Subject",
+            "Semester": "Semester",
+            "ExamDate": "Exam Date",
+            "ExamTime": "Exam Time",
+            "Description": "Description"
+        }
+    },
+    "Marksheet": {
+        "Title": {
+            "Add": "Add Marksheet",
+            "Update": "Update Marksheet",
+            "List": "Marksheet List"
+        },
+        "Fields": {
+            "RollNo": "Roll No",
+            "Name": "Name",
+            "Physics": "Physics",
+            "Chemistry": "Chemistry",
+            "Maths": "Maths",
+            "Total": "Total",
+            "Percentage": "Percentage"
+        }
+    },
+    "Links": {
+        "Dashboard": "Dashboard",
+        "MyProfile": "My Profile",
+        "ChangePassword": "Change Password",
+        "AddUser": "Add User",
+        "UserList": "User List",
+        "AddRole": "Add Role",
+        "RoleList": "Role List",
+        "AddCollege": "Add College",
+        "CollegeList": "College List",
+        "AddStudent": "Add Student",
+        "StudentList": "Student List",
+        "AddMarksheet": "Add Marksheet",
+        "MarksheetList": "Marksheet List",
+        "AddCourse": "Add Course",
+        "CourseList": "Course List",
+        "AddSubject": "Add Subject",
+        "SubjectList": "Subject List",
+        "AddTimetable": "Add Timetable",
+        "TimetableList": "Timetable List",
+        "AddFaculty": "Add Faculty",
+        "FacultyList": "Faculty List",
+        "Logout": "Logout",
+        "Login": "Login",
+        "ForgetPassword": "Forget my password?",
+        "MarksheetMeritList": "Marksheet Merit List",
+        "GetMarksheet": "Get Marksheet"
+    },
+    "Greetings": {
+        "HiUser": "Hi, {{name}} ({{role}})",
+        "HiGuest": "Hi, Guest"
+    },
+    "LocaleSelect": {
+        "Select": "-------Select-------",
+        "English": "English",
+        "Hindi": "Hindi",
+        "Marathi": "Marathi",
+        "Russian": "Russian",
+        "Japanese": "Japanese",
+        "German": "German"
+    },
+    "Button": {
+        "SignIn": "Sign In",
+        "SignUp": "Sign Up"
+    }
+}

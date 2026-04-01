@@ -1,0 +1,186 @@
+<style>
+    .hm {
+        background-image: url('assets/img/addPage.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .card-style {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 12px;
+    }
+
+    .form-container {
+        max-width: 550px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-7 form-container">
+
+                <div class="card card-style grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ form.data.id > 0 
+                                ? ('Timetable.Title.Update' | translate) 
+                                : ('Timetable.Title.Add' | translate) }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                            </div>
+                        </div>
+
+                        <!-- COURSE -->
+                        <label class="form-label">{{'Timetable.Fields.Course' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-graduation-cap"></i></span>
+                            <select class="form-control"
+                                    [ngClass]="{'is-invalid': form.inputerror.courseId}"
+                                    [(ngModel)]="form.data.courseId"
+                                    name="courseId">
+                                <option value="undefined">{{'Common.Select' | translate}}</option>
+                                <option *ngFor="let obj of form.preload.courseList" [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="error-text">{{form.inputerror.courseId}}</div>
+
+                        <!-- SUBJECT -->
+                        <label class="form-label">{{'Timetable.Fields.Subject' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-book"></i></span>
+                            <select class="form-control"
+                                    [ngClass]="{'is-invalid': form.inputerror.subjectId}"
+                                    [(ngModel)]="form.data.subjectId"
+                                    name="subjectId">
+                                <option value="undefined">{{'Common.Select' | translate}}</option>
+                                <option *ngFor="let obj of form.preload.subjectList" [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="error-text">{{form.inputerror.subjectId}}</div>
+
+                        <!-- SEMESTER -->
+                        <label class="form-label">{{'Timetable.Fields.Semester' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-layer-group"></i></span>
+                            <select class="form-control"
+                                    [ngClass]="{'is-invalid': form.inputerror.semester}"
+                                    [(ngModel)]="form.data.semester"
+                                    name="semester">
+                                <option value="undefined">{{'Common.Select' | translate}}</option>
+                                <option *ngFor="let s of [1,2,3,4,5,6,7,8]" [value]="s">{{s}}</option>
+                            </select>
+                        </div>
+                        <div class="error-text">{{form.inputerror.semester}}</div>
+
+                        <!-- EXAM DATE -->
+                        <label class="form-label">{{'Timetable.Fields.ExamDate' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            <input type="date"
+                                   class="form-control"
+                                   [(ngModel)]="form.data.examDate"
+                                   [ngModel]="form.data.examDate | date:'yyyy-MM-dd'"
+                                   name="examDate">
+                        </div>
+                        <div class="error-text">{{form.inputerror.examDate}}</div>
+
+                        <!-- EXAM TIME -->
+                        <label class="form-label">{{'Timetable.Fields.ExamTime' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-clock"></i></span>
+                            <select class="form-control"
+                                    [ngClass]="{'is-invalid': form.inputerror.examTime}"
+                                    [(ngModel)]="form.data.examTime"
+                                    name="examTime">
+                                <option value="undefined">{{'Common.Select' | translate}}</option>
+                                <option value="08:00 AM to 11:00 AM">08:00 AM to 11:00 AM</option>
+                                <option value="12:00 PM to 03:00 PM">12:00 PM to 03:00 PM</option>
+                                <option value="04:00 PM to 07:00 PM">04:00 PM to 07:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="error-text">{{form.inputerror.examTime}}</div>
+
+                        <!-- DESCRIPTION -->
+                        <label class="form-label">{{'Timetable.Fields.Description' | translate}} *</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-align-left"></i></span>
+                            <textarea class="form-control"
+                                      [ngClass]="{'is-invalid': form.inputerror.description}"
+                                      [(ngModel)]="form.data.description"
+                                      name="description"
+                                      rows="3"
+                                      placeholder="Enter Description"></textarea>
+                        </div>
+                        <div class="error-text">{{form.inputerror.description}}</div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button class="btn btn-success me-2 px-4 shadow"
+                                    *ngIf="!form.data.id"
+                                    (click)="submit()">
+                                {{'Common.Save' | translate}}
+                            </button>
+
+                            <button class="btn btn-warning me-2 px-4 shadow"
+                                    *ngIf="!form.data.id"
+                                    (click)="reset()">
+                                {{'Common.Reset' | translate}}
+                            </button>
+
+                            <button class="btn btn-success me-2 px-4 shadow"
+                                    *ngIf="form.data.id"
+                                    (click)="submit()">
+                                {{'Common.Update' | translate}}
+                            </button>
+
+                            <button class="btn btn-primary px-4 shadow"
+                                    *ngIf="form.data.id"
+                                    (click)="forward('/timetablelist')">
+                                {{'Common.Back' | translate}}
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

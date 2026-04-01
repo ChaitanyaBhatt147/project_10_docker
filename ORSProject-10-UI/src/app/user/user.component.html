@@ -1,0 +1,224 @@
+<style>
+    .hm {
+        background-image: url('assets/img/addPage.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .input-group-addon {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 10px;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 form-container">
+
+                <div class="card input-group-addon grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ form.data.id > 0
+                            ? ('User.Title.Update' | translate)
+                            : ('User.Title.Add' | translate) }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                            </div>
+                        </div>
+
+                        <!-- FIRST NAME -->
+                        <label class="form-label">
+                            {{'User.Fields.FirstName' | translate}} *
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.firstName" name="firstName"
+                                [placeholder]="'User.Placeholders.FirstName' | translate">
+                        </div>
+                        <div class="error-text">{{form.inputerror.firstName}}</div>
+
+                        <!-- LAST NAME -->
+                        <label class="form-label">
+                            {{'User.Fields.LastName' | translate}} *
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.lastName" name="lastName"
+                                [placeholder]="'User.Placeholders.LastName' | translate">
+                        </div>
+                        <div class="error-text">{{form.inputerror.lastName}}</div>
+
+                        <!-- LOGIN -->
+                        <label class="form-label">
+                            {{'User.Fields.LoginId' | translate}} *
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.loginId" name="loginId"
+                                [placeholder]="'User.Placeholders.LoginId' | translate">
+                        </div>
+                        <div class="error-text">{{form.inputerror.loginId}}</div>
+
+                        <!-- PASSWORD -->
+                        <label class="form-label">
+                            {{'User.Fields.Password' | translate}} *
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-key"></i></span>
+                            <input type="password" class="form-control" [(ngModel)]="form.data.password" name="password"
+                                [placeholder]="'User.Placeholders.Password' | translate">
+                        </div>
+                        <div class="error-text">{{form.inputerror.password}}</div>
+
+                        <!-- DOB -->
+                        <label class="form-label">
+                            {{'User.Fields.DOB' | translate}} *
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            <input type="date" class="form-control" [(ngModel)]="form.data.dob"
+                                [ngModel]="form.data.dob | date:'yyyy-MM-dd'" name="dob">
+                        </div>
+                        <div class="error-text">{{form.inputerror.dob}}</div>
+
+                        <!-- GENDER -->
+                        <label class="form-label">
+                            {{'User.Fields.Gender' | translate}} *
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-venus-mars"></i></span>
+                            <select class="form-control" [(ngModel)]="form.data.gender" name="gender">
+                                <option value="undefined">{{'Common.Select' | translate}}</option>
+                                <option value="Male">{{'GenderOptions.Male' | translate}}</option>
+                                <option value="Female">{{'GenderOptions.Female' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="error-text">{{form.inputerror.gender}}</div>
+
+                        <!-- ROLE -->
+                        <label class="form-label">
+                            {{'User.Fields.Role' | translate}} *
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            <select class="form-control" [(ngModel)]="form.data.roleId" name="roleId">
+                                <option value="undefined">{{'Common.Select' | translate}}</option>
+                                <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="error-text">{{form.inputerror.roleId}}</div>
+
+                        <!-- MOBILE -->
+                        <label class="form-label">
+                            {{'User.Fields.Mobile' | translate}} *
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.phone" name="phone"
+                                maxlength="10" [placeholder]="'User.Placeholders.Mobile' | translate">
+                        </div>
+                        <div class="error-text">{{form.inputerror.phone}}</div>
+
+                        <!-- ALTERNATE MOBILE -->
+                        <label class="form-label">
+                            {{'User.Fields.AlternateMobile' | translate}}
+                        </label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.alternateMobile"
+                                name="alternateMobile" maxlength="10"
+                                [placeholder]="'User.Placeholders.AlternateMobile' | translate">
+                        </div>
+                        <div class="error-text">{{form.inputerror.alternateMobile}}</div>
+
+                        <!-- STATUS -->
+                        <label class="form-label">
+                            {{'User.Fields.Status' | translate}}
+                        </label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa fa-toggle-on"></i></span>
+                            <select class="form-control" [(ngModel)]="form.data.status" name="status">
+                                <option value="undefined">{{'Common.Select' | translate}}</option>
+                                <option value="Active">{{'User.SelectOptions.Active' | translate}}</option>
+                                <option value="Inactive">{{'User.SelectOptions.Inactive' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="error-text">{{form.inputerror.status}}</div>
+
+                        <!-- IMAGE -->
+                        <label><b>{{'User.Fields.ProfileImage' | translate}}</b></label>
+                        <div class="mb-2 text-center">
+                            <img *ngIf="imagePreview" [src]="imagePreview" class="img-thumbnail" width="120">
+
+                            <img *ngIf="!imagePreview && form.data.imageId"
+                                src="http://localhost:8080/User/profilePic/{{form.data.id}}" class="img-thumbnail"
+                                width="120">
+
+                            <img *ngIf="!imagePreview && !form.data.imageId" src="assets/img/default.png"
+                                class="img-thumbnail" width="120">
+                        </div>
+
+                        <input type="file" #fileInput class="form-control mb-3"
+                            (change)="onFileSelect(fileInput.files)">
+
+                        <!-- BUTTONS -->
+                        <div class="text-center">
+                            <button class="btn btn-success mr-2" (click)="onUpload()">
+                                {{ form.data.id > 0 ? ('Common.Update' | translate) : ('Common.Save' | translate) }}
+                            </button>
+
+                            <button class="btn btn-warning mr-2" *ngIf="!form.data.id" (click)="reset()">
+                                {{'Common.Reset' | translate}}
+                            </button>
+
+                            <button class="btn btn-primary" *ngIf="form.data.id" (click)="forward('/userlist')">
+                                {{'Common.Back' | translate}}
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

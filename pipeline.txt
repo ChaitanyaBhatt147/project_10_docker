@@ -1,0 +1,140 @@
+pipeline {
+    agent any
+
+    environment {
+        // -------- TOOLS --------
+        JAVA_HOME = "C:\\Program Files\\Java\\jdk-11.0.15.1"
+        MAVEN_HOME = "C:\\ProgramData\\Jenkins\\.jenkins\\tools\\hudson.tasks.Maven_MavenInstallation\\Maven"
+        NODE_HOME = "C:\\Program Files\\nodejs"
+
+        PATH = "${JAVA_HOME}\\bin;${MAVEN_HOME}\\bin;${NODE_HOME};${env.PATH}"
+
+        // -------- REPO --------
+        GIT_REPO = "https://github.com/ChaitanyaBhatt147/project_10_docker.git"
+    }
+
+    stages {
+
+        // -------- CLEAN WORKSPACE --------
+        stage('Cleanup Workspace') {
+            steps {
+                deleteDir()
+            }
+        }
+
+        // -------- CLONE --------
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: "${GIT_REPO}"
+            }
+        }
+
+        // -------- VERIFY --------
+        stage('Check Structure') {
+            steps {
+                bat 'dir'
+            }
+        }
+
+        // -------- BUILD ANGULAR --------
+        stage('Build Angular') {
+            steps {
+                dir('ORSProject-10-UI') {
+                    bat 'npm install'
+                    bat 'npm run build --prod'
+                }
+            }
+        }
+
+        // -------- VERIFY ANGULAR --------
+        stage('Verify Angular Build') {
+            steps {
+                bat 'dir ORSProject-10-UI\\dist'
+            }
+        }
+
+        // -------- BUILD BACKEND --------
+        stage('Build Spring Boot') {
+            steps {
+                dir('ORSProject-10') {
+                    bat 'mvn clean package -DskipTests'
+                }
+            }
+        }
+
+        // -------- VERIFY BACKEND --------
+        stage('Verify Backend Build') {
+            steps {
+                bat 'dir ORSProject-10\\target'
+            }
+        }
+
+        // -------- CLEAN DOCKER --------
+        stage('Clean Docker') {
+            steps {
+                bat '''
+                docker-compose down
+                '''
+            }
+        }
+
+        // -------- START MYSQL ONLY --------
+        stage('Start MySQL') {
+            steps {
+                bat 'docker-compose up -d mysql'
+            }
+        }
+
+        // -------- WAIT FOR MYSQL --------
+        stage('Wait for MySQL') {
+            steps {
+                bat '''
+                echo Waiting for MySQL to be ready...
+
+                :loop
+                docker logs mysql-container | findstr "ready for connections"
+                if %errorlevel% neq 0 (
+                    timeout /t 5 >nul
+                    goto loop
+                )
+
+                echo MySQL is ready!
+                '''
+            }
+        }
+
+        // -------- BUILD DOCKER IMAGES --------
+        stage('Docker Build') {
+            steps {
+                bat 'docker-compose build --no-cache'
+            }
+        }
+
+        // -------- START FULL APP --------
+        stage('Start Application') {
+            steps {
+                bat 'docker-compose up -d'
+            }
+        }
+
+        // -------- FINAL OUTPUT --------
+        stage('Final Output') {
+            steps {
+                echo "====================================="
+                echo "✅ Frontend → http://localhost:4200"
+                echo "✅ Backend  → http://localhost:8080"
+                echo "✅ MySQL    → localhost:3307"
+                echo "====================================="
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "🎉 SUCCESS: FULL CI/CD + DOCKER WORKING"
+        }
+        failure {
+            echo "❌ FAILED: CHECK LOGS"
+        }
+    }
+}

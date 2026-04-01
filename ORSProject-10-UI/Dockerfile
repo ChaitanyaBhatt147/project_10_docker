@@ -11,6 +11,6 @@ RUN npm run build --prod
 # Stage 2: Run with Nginx
 FROM nginx:alpine
 
-COPY --from=build /app/dist/ORSProject-10-UI /usr/share/nginx/html
+COPY --from=build /app/dist/orsproject-10-ui /usr/share/nginx/html
 
 EXPOSE 80

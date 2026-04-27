@@ -230,5 +230,17 @@
     "Button": {
         "SignIn": "Sign In",
         "SignUp": "Sign Up"
+    },
+    "RateLimit": {
+        "Title": {
+            "Add": "Add Rate Limit",
+            "Update": "Update Rate Limit"
+        },
+        "Fields": {
+            "Code": "Rate Limit Code",
+            "ApiName": "API Name",
+            "LimitPerMin": "Limit Per Minute",
+            "Status": "Status"
+        }
     }
 }

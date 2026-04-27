@@ -3,7 +3,7 @@
     background-attachment: fixed;
     min-height: 100vh;
     padding-top: 100px;">
-    
+
     <!-- TITLE -->
     <h1 class="text-center text-primary font-weight-bold mb-4">
         Get Marksheet
@@ -39,10 +39,16 @@
 
             <div *ngIf="form.error" class="alert alert-danger">
                 {{form.message}}
+                <button type="button" class="close" (click)="closeMessage()">
+                    <span>&times;</span>
+                </button>
             </div>
 
             <div *ngIf="!form.error && form.message" class="alert alert-success">
                 {{form.message}}
+                <button type="button" class="close" (click)="closeMessage()">
+                    <span>&times;</span>
+                </button>
             </div>
 
         </div>

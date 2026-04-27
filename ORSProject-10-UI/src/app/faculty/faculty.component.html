@@ -45,58 +45,54 @@
 
                         <!-- TITLE -->
                         <h3 class="text-center text-primary">
-                            {{ form.data.id > 0 
-                                ? ('Faculty.Title.Update' | translate) 
-                                : ('Faculty.Title.Add' | translate) }}
+                            {{ form.data.id > 0
+                            ? ('Faculty.Title.Update' | translate)
+                            : ('Faculty.Title.Add' | translate) }}
                         </h3>
 
                         <!-- MESSAGE -->
                         <div class="text-center mb-2">
                             <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                             <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                         </div>
 
                         <!-- FIRST NAME -->
                         <label class="form-label">{{'Faculty.Fields.FirstName' | translate}} *</label>
-                        <input type="text" class="form-control mb-2"
-                               [(ngModel)]="form.data.firstName"
-                               name="firstName"
-                               placeholder="Enter First Name">
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.firstName" name="firstName"
+                            placeholder="Enter First Name">
                         <div class="error-text">{{form.inputerror.firstName}}</div>
 
                         <!-- LAST NAME -->
                         <label class="form-label">{{'Faculty.Fields.LastName' | translate}} *</label>
-                        <input type="text" class="form-control mb-2"
-                               [(ngModel)]="form.data.lastName"
-                               name="lastName"
-                               placeholder="Enter Last Name">
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.lastName" name="lastName"
+                            placeholder="Enter Last Name">
                         <div class="error-text">{{form.inputerror.lastName}}</div>
 
                         <!-- EMAIL -->
                         <label class="form-label">{{'Faculty.Fields.Email' | translate}} *</label>
-                        <input type="text" class="form-control mb-2"
-                               [(ngModel)]="form.data.email"
-                               name="email"
-                               placeholder="Enter Email ID">
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.email" name="email"
+                            placeholder="Enter Email ID">
                         <div class="error-text">{{form.inputerror.email}}</div>
 
                         <!-- DOB -->
                         <label class="form-label">{{'Faculty.Fields.DOB' | translate}} *</label>
-                        <input type="date" class="form-control mb-2"
-                               [(ngModel)]="form.data.dob"
-                               [ngModel]="form.data.dob | date:'yyyy-MM-dd'"
-                               name="dob">
+                        <input type="date" class="form-control mb-2" [(ngModel)]="form.data.dob"
+                            [ngModel]="form.data.dob | date:'yyyy-MM-dd'" name="dob" max="datepicker.max">
                         <div class="error-text">{{form.inputerror.dob}}</div>
 
                         <!-- GENDER -->
                         <label class="form-label">{{'Faculty.Fields.Gender' | translate}} *</label>
-                        <select class="form-control mb-2"
-                                [(ngModel)]="form.data.gender"
-                                name="gender">
+                        <select class="form-control mb-2" [(ngModel)]="form.data.gender" name="gender">
                             <option value="undefined">{{'Common.Select' | translate}}</option>
                             <option value="Male">{{'GenderOptions.Male' | translate}}</option>
                             <option value="Female">{{'GenderOptions.Female' | translate}}</option>
@@ -105,26 +101,19 @@
 
                         <!-- MOBILE -->
                         <label class="form-label">{{'Faculty.Fields.Mobile' | translate}} *</label>
-                        <input type="text" class="form-control mb-2"
-                               [(ngModel)]="form.data.phoneNo"
-                               name="phoneNo"
-                               maxlength="10"
-                               placeholder="Enter Mobile No">
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.phoneNo" name="phoneNo"
+                            maxlength="10" placeholder="Enter Mobile No">
                         <div class="error-text">{{form.inputerror.phoneNo}}</div>
 
                         <!-- QUALIFICATION -->
                         <label class="form-label">{{'Faculty.Fields.Qualification' | translate}} *</label>
-                        <input type="text" class="form-control mb-2"
-                               [(ngModel)]="form.data.qualification"
-                               name="qualification"
-                               placeholder="Enter Qualification">
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.qualification"
+                            name="qualification" placeholder="Enter Qualification">
                         <div class="error-text">{{form.inputerror.qualification}}</div>
 
                         <!-- COLLEGE -->
                         <label class="form-label">{{'Faculty.Fields.College' | translate}} *</label>
-                        <select class="form-control mb-2"
-                                [(ngModel)]="form.data.collegeId"
-                                name="collegeId">
+                        <select class="form-control mb-2" [(ngModel)]="form.data.collegeId" name="collegeId">
                             <option value="undefined">{{'Common.Select' | translate}}</option>
                             <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">
                                 {{obj.value}}
@@ -134,9 +123,7 @@
 
                         <!-- COURSE -->
                         <label class="form-label">{{'Faculty.Fields.Course' | translate}} *</label>
-                        <select class="form-control mb-2"
-                                [(ngModel)]="form.data.courseId"
-                                name="courseId">
+                        <select class="form-control mb-2" [(ngModel)]="form.data.courseId" name="courseId">
                             <option value="undefined">{{'Common.Select' | translate}}</option>
                             <option *ngFor="let obj of form.preload.courseList" [value]="obj.key">
                                 {{obj.value}}
@@ -146,9 +133,7 @@
 
                         <!-- SUBJECT -->
                         <label class="form-label">{{'Faculty.Fields.Subject' | translate}} *</label>
-                        <select class="form-control mb-2"
-                                [(ngModel)]="form.data.subjectId"
-                                name="subjectId">
+                        <select class="form-control mb-2" [(ngModel)]="form.data.subjectId" name="subjectId">
                             <option value="undefined">{{'Common.Select' | translate}}</option>
                             <option *ngFor="let obj of form.preload.subjectList" [value]="obj.key">
                                 {{obj.value}}
@@ -159,27 +144,19 @@
                         <!-- BUTTONS -->
                         <div class="text-center mt-3">
 
-                            <button class="btn btn-success me-2"
-                                    *ngIf="!form.data.id"
-                                    (click)="submit()">
+                            <button class="btn btn-success me-2" *ngIf="!form.data.id" (click)="submit()">
                                 {{'Common.Save' | translate}}
                             </button>
 
-                            <button class="btn btn-warning me-2"
-                                    *ngIf="!form.data.id"
-                                    (click)="reset()">
+                            <button class="btn btn-warning me-2" *ngIf="!form.data.id" (click)="reset()">
                                 {{'Common.Reset' | translate}}
                             </button>
 
-                            <button class="btn btn-success me-2"
-                                    *ngIf="form.data.id"
-                                    (click)="submit()">
+                            <button class="btn btn-success me-2" *ngIf="form.data.id" (click)="submit()">
                                 {{'Common.Update' | translate}}
                             </button>
 
-                            <button class="btn btn-primary"
-                                    *ngIf="form.data.id"
-                                    (click)="forward('/facultylist')">
+                            <button class="btn btn-primary" *ngIf="form.data.id" (click)="forward('/facultylist')">
                                 {{'Common.Back' | translate}}
                             </button>
 

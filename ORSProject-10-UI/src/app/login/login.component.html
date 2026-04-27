@@ -1,6 +1,6 @@
 <style>
     .p4 {
-        background-image: url('../../assets/img/login.png');
+        background-image: url('/assets/img/login.png');
         background-repeat: no-repeat;
         background-size: cover;
         height: 100vh;
@@ -21,7 +21,7 @@
 
             <div class="col-md-4">
 
-                <div class="card card-style">
+                <div class="card card-style" style="margin-top: 100px;">
                     <div class="card-body">
 
                         <!-- TITLE -->
@@ -33,10 +33,17 @@
                         <div class="text-center mb-2">
                             <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                             <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
+
                         </div>
 
                         <!-- LOGIN ID -->
@@ -67,7 +74,7 @@
                         </div>
                         <div>
                             <span class="text-danger">{{form.inputerror.password}}</span>
-                        </div   >
+                        </div>
 
                         <!-- BUTTONS -->
                         <div class="text-center mt-3">

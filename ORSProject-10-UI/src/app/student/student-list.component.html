@@ -32,10 +32,16 @@
         <!-- MESSAGE -->
         <div *ngIf="form.error" class="alert alert-danger text-center">
             {{form.message}}
+            <button type="button" class="close" (click)="closeMessage()">
+                <span>&times;</span>
+            </button>
         </div>
 
         <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
             {{form.message}}
+            <button type="button" class="close" (click)="closeMessage()">
+                <span>&times;</span>
+            </button>
         </div>
 
         <!-- SEARCH -->
@@ -44,17 +50,13 @@
             <div class="col-sm-2"></div>
 
             <div class="col-sm-2">
-                <input type="text"
-                       class="form-control"
-                       [(ngModel)]="form.searchParams.firstName"
-                       placeholder="Enter Student Name">
+                <input type="text" class="form-control" [(ngModel)]="form.searchParams.firstName"
+                    placeholder="Enter Student Name">
             </div>
 
             <div class="col-sm-2">
-                <input type="text"
-                       class="form-control"
-                       [(ngModel)]="form.searchParams.collegeName"
-                       placeholder="Enter College Name">
+                <input type="text" class="form-control" [(ngModel)]="form.searchParams.collegeName"
+                    placeholder="Enter College Name">
             </div>
 
             <div class="col-sm-4">
@@ -81,9 +83,7 @@
                     <tr style="background-color:#f79d65; font-size:16px;">
 
                         <th>
-                            <input type="checkbox"
-                                   [(ngModel)]="isMasterSel"
-                                   (change)="checkUncheckAll($event)">
+                            <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)">
                             {{'Common.SelectAll' | translate}}
                         </th>
 
@@ -104,11 +104,7 @@
                     <tr *ngFor="let m of form.list; let i = index">
 
                         <td class="text">
-                            <input #checkboxes
-                                   type="checkbox"
-                                   (change)="checklistUpdate()"
-                                   [id]="m.id"
-                                   [value]="m.id">
+                            <input #checkboxes type="checkbox" (change)="checklistUpdate()" [id]="m.id" [value]="m.id">
                         </td>
 
                         <td class="text">{{(form.pageNo*5)+i+1}}</td>
@@ -137,31 +133,25 @@
             <tr>
 
                 <td>
-                    <button class="btn btn-warning"
-                            (click)="previous()"
-                            [disabled]="form.pageNo == 0">
+                    <button class="btn btn-warning" (click)="previous()" [disabled]="form.pageNo == 0">
                         {{'Common.Previous' | translate}}
                     </button>
                 </td>
 
                 <td>
-                    <button class="btn btn-primary"
-                            (click)="forward('/student')">
+                    <button class="btn btn-primary" (click)="forward('/student')">
                         {{'Common.New' | translate}}
                     </button>
                 </td>
 
                 <td>
-                    <button class="btn btn-danger"
-                            (click)="deleteMany()">
+                    <button class="btn btn-danger" (click)="deleteMany()">
                         {{'Common.Delete' | translate}}
                     </button>
                 </td>
 
                 <td align="right">
-                    <button class="btn btn-warning"
-                            (click)="next()"
-                            [disabled]="form.nextListSize == 0">
+                    <button class="btn btn-warning" (click)="next()" [disabled]="form.nextListSize == 0">
                         {{'Common.Next' | translate}}
                     </button>
                 </td>

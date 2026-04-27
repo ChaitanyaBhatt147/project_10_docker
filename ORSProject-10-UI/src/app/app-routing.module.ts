@@ -26,6 +26,28 @@ import { ChangepasswordComponent } from './user/changepassword.component';
 import { MyprofileComponent } from './user/myprofile.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmerit-list.component';
+import { BranchManagerComponent } from './branch-manager/branch-manager.component';
+import { BranchManagerListComponent } from './branch-manager/branch-manager-list.component';
+import { CriptocurrencyComponent } from './criptocurrency/criptocurrency.component';
+import { CriptocurrencylistComponent } from './criptocurrency/criptocurrencylist.component';
+import { ClickComponent } from './click/click.component';
+import { ClickListComponent } from './click/click-list.component';
+import { LoanComponent } from './loan/loan.component';
+import { LoanlistComponent } from './loan/loanlist.component';
+import { LimitComponent } from './limit/limit.component';
+import { LimitListComponent } from './limit/limit-list.component';
+import { CredentialComponent } from './credential/credential.component';
+import { CredentialListComponent } from './credential/credential-list.component';
+import { RateLimitComponent } from './rate-limit/rate-limit.component';
+import { RateLimitListComponent } from './rate-limit/rate-limit-list.component';
+import { MetadataComponent } from './metadata/metadata.component';
+import { MetadataListComponent } from './metadata/metadata-list.component';
+import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
+import { SubscriptionPlanListComponent } from './subscription-plan/subscription-plan-list.component';
+import { SLAComponent } from './sla/sla.component';
+import { SLAListComponent } from './sla/slalist.component';
+import { DonationCampComponent } from './donation-camp/donation-camp.component';
+import { DonationCampListComponent } from './donation-camp/donation-camp-list.component';
 
 const routes: Routes = [
   {
@@ -174,8 +196,139 @@ const routes: Routes = [
     component: GetmarksheetComponent
   },
   {
-    path:"getmarksheet/:id",
-    component:GetmarksheetComponent
+    path: "getmarksheet/:id",
+    component: GetmarksheetComponent
+  },
+  {
+    path: 'branchmanager',
+    component: BranchManagerComponent
+  },
+  {
+    path: 'branchmanager/:id',
+    component: BranchManagerComponent
+  },
+  {
+    path: 'branchmanagerlist',
+    component: BranchManagerListComponent
+  },
+  {
+    path: 'cryptocurrency',
+    component: CriptocurrencyComponent
+  },
+  {
+    path: 'cryptocurrency/:id',
+    component: CriptocurrencyComponent
+  },
+  {
+    path: 'cryptocurrencylist',
+    component: CriptocurrencylistComponent
+  },
+  {
+    path: 'click',
+    component: ClickComponent
+  },
+  {
+    path: 'click/:id',
+    component: ClickComponent
+  },
+  {
+    path: 'clicklist',
+    component: ClickListComponent
+  },
+  {
+    path: 'loan',
+    component: LoanComponent
+  },
+  {
+    path: 'loan/:id',
+    component: LoanComponent
+  },
+  {
+    path: 'loanlist',
+    component: LoanlistComponent
+  },
+  {
+    path: 'limit',
+    component: LimitComponent
+  },
+  {
+    path: 'limit/:id',
+    component: LimitComponent
+  },
+  {
+    path: 'limitlist',
+    component: LimitListComponent
+  },
+  {
+    path: 'credential',
+    component: CredentialComponent
+  },
+  {
+    path: 'credential/:id',
+    component: CredentialComponent
+  },
+  {
+    path: 'credentiallist',
+    component: CredentialListComponent
+  },
+  {
+    path: 'ratelimit',
+    component: RateLimitComponent
+  },
+  {
+    path: 'ratelimit/:id',
+    component: RateLimitComponent
+  },
+  {
+    path: 'ratelimitlist',
+    component: RateLimitListComponent
+  },
+  {
+    path: 'metadata',
+    component: MetadataComponent
+  },
+  {
+    path: 'metadata/:id',
+    component: MetadataComponent
+  },
+  {
+    path: 'metadatalist',
+    component: MetadataListComponent
+  },
+  {
+    path: 'subscriptionplan',
+    component: SubscriptionPlanComponent
+  },
+  {
+    path: 'subscriptionplan/:id',
+    component: SubscriptionPlanComponent
+  }, {
+    path: 'subscriptionplanlist',
+    component: SubscriptionPlanListComponent
+  },
+  {
+    path: 'sla',
+    component: SLAComponent
+  },
+  {
+    path: 'sla/:id',
+    component: SLAComponent
+  },
+  {
+    path: 'slalist',
+    component: SLAListComponent
+  },
+  {
+    path: 'donationcamp',
+    component: DonationCampComponent
+  },
+  {
+    path: 'donationcamp/:id',
+    component: DonationCampComponent
+  },
+  {
+    path: 'donationcamplist',
+    component: DonationCampListComponent
   }
 ];
 

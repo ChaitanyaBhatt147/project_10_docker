@@ -45,18 +45,24 @@
 
                         <!-- TITLE -->
                         <h3 class="text-center text-primary">
-                            {{ form.data.id > 0 
-                                ? ('Subject.Title.Update' | translate) 
-                                : ('Subject.Title.Add' | translate) }}
+                            {{ form.data.id > 0
+                            ? ('Subject.Title.Update' | translate)
+                            : ('Subject.Title.Add' | translate) }}
                         </h3>
 
                         <!-- MESSAGE -->
                         <div class="text-center mb-2">
                             <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                             <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                         </div>
 
@@ -66,12 +72,8 @@
                         </label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-book"></i></span>
-                            <input type="text"
-                                   class="form-control"
-                                   [ngClass]="{'is-invalid': form.inputerror.name}"
-                                   [(ngModel)]="form.data.name"
-                                   name="name"
-                                   placeholder="Enter Subject Name">
+                            <input type="text" class="form-control" [ngClass]="{'is-invalid': form.inputerror.name}"
+                                [(ngModel)]="form.data.name" name="name" placeholder="Enter Subject Name">
                         </div>
                         <div class="error-text">{{form.inputerror.name}}</div>
 
@@ -81,10 +83,8 @@
                         </label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-graduation-cap"></i></span>
-                            <select class="form-control"
-                                    [ngClass]="{'is-invalid': form.inputerror.courseId}"
-                                    [(ngModel)]="form.data.courseId"
-                                    name="courseId">
+                            <select class="form-control" [ngClass]="{'is-invalid': form.inputerror.courseId}"
+                                [(ngModel)]="form.data.courseId" name="courseId">
                                 <option value="undefined">{{'Common.Select' | translate}}</option>
                                 <option *ngFor="let obj of form.preload.courseList" [value]="obj.key">
                                     {{obj.value}}
@@ -99,39 +99,29 @@
                         </label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-align-left"></i></span>
-                            <textarea class="form-control"
-                                      [ngClass]="{'is-invalid': form.inputerror.description}"
-                                      [(ngModel)]="form.data.description"
-                                      name="description"
-                                      rows="3"
-                                      placeholder="Enter Short Description"></textarea>
+                            <textarea class="form-control" [ngClass]="{'is-invalid': form.inputerror.description}"
+                                [(ngModel)]="form.data.description" name="description" rows="3"
+                                placeholder="Enter Short Description"></textarea>
                         </div>
                         <div class="error-text">{{form.inputerror.description}}</div>
 
                         <!-- BUTTONS -->
                         <div class="text-center mt-3">
 
-                            <button class="btn btn-success me-2 px-4 shadow"
-                                    *ngIf="!form.data.id"
-                                    (click)="submit()">
+                            <button class="btn btn-success me-2 px-4 shadow" *ngIf="!form.data.id" (click)="submit()">
                                 {{'Common.Save' | translate}}
                             </button>
 
-                            <button class="btn btn-warning me-2 px-4 shadow"
-                                    *ngIf="!form.data.id"
-                                    (click)="reset()">
+                            <button class="btn btn-warning me-2 px-4 shadow" *ngIf="!form.data.id" (click)="reset()">
                                 {{'Common.Reset' | translate}}
                             </button>
 
-                            <button class="btn btn-success me-2 px-4 shadow"
-                                    *ngIf="form.data.id"
-                                    (click)="submit()">
+                            <button class="btn btn-success me-2 px-4 shadow" *ngIf="form.data.id" (click)="submit()">
                                 {{'Common.Update' | translate}}
                             </button>
 
-                            <button class="btn btn-primary px-4 shadow"
-                                    *ngIf="form.data.id"
-                                    (click)="forward('/subjectlist')">
+                            <button class="btn btn-primary px-4 shadow" *ngIf="form.data.id"
+                                (click)="forward('/subjectlist')">
                                 {{'Common.Back' | translate}}
                             </button>
 

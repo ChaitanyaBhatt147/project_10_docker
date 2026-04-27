@@ -1,0 +1,119 @@
+<style>
+    .hm {
+        background-image: url('assets/img/addPage.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .card-style {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 12px;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            ```
+            <div class="col-md-6 form-container">
+
+                <div class="card card-style grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ form.data.id > 0
+                            ? 'Update Branch Manager'
+                            : 'Add Branch Manager' }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                            </div>
+                        </div>
+
+                        <!-- MANAGER NAME -->
+                        <label class="form-label">
+                            Manager Name *
+                        </label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.managerName"
+                            name="managerName" placeholder="Enter Manager Name">
+                        <div class="error-text">{{form.inputerror.managerName}}</div>
+
+                        <!-- BRANCH NAME -->
+                        <label class="form-label">
+                            Branch Name *
+                        </label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.branchName"
+                            name="branchName" placeholder="Enter Branch Name">
+                        <div class="error-text">{{form.inputerror.branchName}}</div>
+
+                        <!-- CONTACT NUMBER -->
+                        <label class="form-label">
+                            Contact Number *
+                        </label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.contactNumber"
+                            name="contactNumber" placeholder="Enter Contact Number">
+                        <div class="error-text">{{form.inputerror.contactNumber}}</div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button class="btn btn-success me-2" *ngIf="!form.data.id" (click)="submit()">
+                                Save
+                            </button>
+
+                            <button class="btn btn-warning me-2" *ngIf="!form.data.id" (click)="reset()">
+                                Reset
+                            </button>
+
+                            <button class="btn btn-success me-2" *ngIf="form.data.id" (click)="submit()">
+                                Update
+                            </button>
+
+                            <button class="btn btn-primary" *ngIf="form.data.id"
+                                (click)="forward('/branchmanagerlist')">
+                                Back
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    ```
+
+</div>

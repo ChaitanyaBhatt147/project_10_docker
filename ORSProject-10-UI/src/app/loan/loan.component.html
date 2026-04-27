@@ -1,0 +1,136 @@
+<style>
+    .hm {
+        background-image: url('assets/img/addPage.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .card-style {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 12px;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 form-container">
+
+                <div class="card card-style grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ form.data.id > 0 ? 'Update Loan' : 'Add Loan' }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- LOAN ID -->
+                        <label class="form-label">Loan ID *</label>
+                        <input type="number" class="form-control mb-2"
+                            [(ngModel)]="form.data.loanId"
+                            name="loanId"
+                            placeholder="Enter Loan ID">
+                        <div class="error-text">{{form.inputerror.loanId}}</div>
+
+                        <!-- LOAN AMOUNT -->
+                        <label class="form-label">Loan Amount *</label>
+                        <input type="number" class="form-control mb-2"
+                            [(ngModel)]="form.data.loanAmount"
+                            name="loanAmount"
+                            placeholder="Enter Loan Amount">
+                        <div class="error-text">{{form.inputerror.loanAmount}}</div>
+
+                        <!-- INTEREST RATE -->
+                        <label class="form-label">Interest Rate (%) *</label>
+                        <input type="number" class="form-control mb-2"
+                            [(ngModel)]="form.data.interestRate"
+                            name="interestRate"
+                            placeholder="Enter Interest Rate">
+                        <div class="error-text">{{form.inputerror.interestRate}}</div>
+
+                        <!-- ISSUE DATE -->
+                        <label class="form-label">Issue Date *</label>
+                        <input type="date" class="form-control mb-2"
+                            [(ngModel)]="form.data.issueDate"
+                            name="issueDate">
+                        <div class="error-text">{{form.inputerror.issueDate}}</div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <!-- ADD -->
+                            <button class="btn btn-success me-2"
+                                *ngIf="!form.data.id"
+                                (click)="submit()">
+                                Save
+                            </button>
+
+                            <button class="btn btn-warning me-2"
+                                *ngIf="!form.data.id"
+                                (click)="reset()">
+                                Reset
+                            </button>
+
+                            <!-- UPDATE -->
+                            <button class="btn btn-success me-2"
+                                *ngIf="form.data.id"
+                                (click)="submit()">
+                                Update
+                            </button>
+
+                            <button class="btn btn-primary"
+                                *ngIf="form.data.id"
+                                (click)="forward('/loanlist')">
+                                Back
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

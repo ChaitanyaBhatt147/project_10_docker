@@ -20,6 +20,17 @@ export class SignupComponent {
   constructor(private httpService: HttpServiceService, private router: Router) {
   }
 
+  public datepicker: any = {};
+  ngOnInit(): void {
+        
+        let maxDate = new Date();
+        maxDate.setFullYear(maxDate.getFullYear() - 18);
+
+        this.datepicker = {
+            max: maxDate.toISOString().split('T')[0],
+        };
+    }
+
   signUp() {
     var _self = this;
     this.httpService.post(this.endpoint, this.form.data, function (res: any) {
@@ -41,4 +52,7 @@ export class SignupComponent {
   reset() {
     location.reload();
   }
+  closeMessage() {
+  this.form.message = '';
+}
 }

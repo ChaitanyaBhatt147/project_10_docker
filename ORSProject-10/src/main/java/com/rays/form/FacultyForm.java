@@ -2,6 +2,7 @@ package com.rays.form;
 
 import java.util.Date;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -62,6 +63,7 @@ public class FacultyForm extends BaseForm {
 	 * Email address.
 	 */
 	@NotEmpty(message = "Email ID is required")
+	@Email
 	private String email;
 
 	/**

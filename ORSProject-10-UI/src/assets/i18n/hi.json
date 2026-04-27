@@ -230,5 +230,18 @@
     "Button": {
         "SignIn": "साइन इन",
         "SignUp": "साइन अप"
+    },
+    "RateLimit": {
+        "Title": {
+            "Add": "रेट लिमिट जोड़ें",
+            "Update": "रेट लिमिट अपडेट करें",
+            "List": "रेट लिमिट सूची"
+        },
+        "Fields": {
+            "Name": "नाम",
+            "Description": "विवरण",
+            "MaxRequests": "अधिकतम अनुरोध",
+            "TimeWindow": "समय विंडो (सेकंड में)"
+        }
     }
 }

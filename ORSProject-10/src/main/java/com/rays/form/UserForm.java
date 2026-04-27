@@ -2,6 +2,7 @@ package com.rays.form;
 
 import java.util.Date;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -43,6 +44,7 @@ public class UserForm extends BaseForm {
 	 * Login ID of the user.
 	 */
 	@NotEmpty(message = "Login Id is required")
+	@Email
 	private String loginId;
 
 	/**

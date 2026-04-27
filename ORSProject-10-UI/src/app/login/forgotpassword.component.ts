@@ -38,4 +38,8 @@ export class ForgotpasswordComponent {
     });
   }
 
+  closeMessage() {
+  this.form.message = '';
+}
+
 }

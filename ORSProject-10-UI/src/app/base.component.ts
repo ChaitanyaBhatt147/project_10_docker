@@ -29,6 +29,8 @@ export class BaseCtl implements OnInit {
         preload: '',
     }
 
+    public datepicker: any = {};
+
     initApi(ep: any) {
         this.api.endpoint = ep;
         this.api.get = ep + "/get";
@@ -45,6 +47,7 @@ export class BaseCtl implements OnInit {
         serviceLocator.getPathVariable(route, function (params: any) {
             _self.form.data.id = params["id"];
         })
+        
     }
 
     ngOnInit(): void {
@@ -52,6 +55,13 @@ export class BaseCtl implements OnInit {
         if (this.form.data.id && this.form.data.id > 0) {
             this.display();
         }
+        let maxDate = new Date();
+        maxDate.setFullYear(maxDate.getFullYear() - 18);
+
+        this.datepicker = {
+            max: maxDate.toISOString().split('T')[0],
+        };
+        
     }
 
     preload() {
@@ -147,5 +157,7 @@ export class BaseCtl implements OnInit {
     reset() {
         location.reload();
     }
-    
+    closeMessage() {
+        this.form.message = '';
+    }
 }

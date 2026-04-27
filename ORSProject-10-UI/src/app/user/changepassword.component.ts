@@ -41,4 +41,8 @@ export class ChangepasswordComponent {
     this.route.navigateByUrl(page);
   }
 
+  closeMessage() {
+    this.form.message = '';
+  }
+
 }

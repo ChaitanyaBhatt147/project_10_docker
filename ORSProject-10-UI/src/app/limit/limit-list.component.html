@@ -1,0 +1,172 @@
+<style>
+    .hm {
+        background-image: url('assets/img/list.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 85px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .text {
+        text-align: center;
+    }
+
+    .table tbody tr {
+        font-weight: bold;
+    }
+</style>
+
+<div class="hm">
+
+    <div class="container-fluid">
+
+        <!-- TITLE -->
+        <div class="text-center pt-3">
+            <h1 class="fw-bold text-dark">
+                <u>Limit List</u>
+            </h1>
+        </div>
+
+        <!-- MESSAGE -->
+        <div *ngIf="form.error" class="alert alert-danger text-center">
+            {{form.message}}
+            <button type="button" class="close" (click)="closeMessage()">
+                <span>&times;</span>
+            </button>
+        </div>
+
+        <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+            {{form.message}}
+            <button type="button" class="close" (click)="closeMessage()">
+                <span>&times;</span>
+            </button>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="row mt-3" *ngIf="form.list.length > 0">
+
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-3">
+                <input type="text" class="form-control"
+                    [(ngModel)]="form.searchParams.limitName"
+                    placeholder="Enter Limit Name">
+            </div>
+
+            <div class="col-sm-3">
+                <button class="btn btn-primary me-2" (click)="search()">
+                    Search
+                </button>
+
+                <button class="btn btn-dark" (click)="reset()">
+                    Reset
+                </button>
+            </div>
+
+            <div class="col-sm-2"></div>
+        </div>
+
+        <br>
+
+        <!-- TABLE -->
+        <div class="table-responsive" *ngIf="form.list.length > 0">
+
+            <table class="table table-bordered table-striped table-hover">
+
+                <thead>
+                    <tr style="background-color:#f79d65; font-size:18px;">
+
+                        <th>
+                            <input type="checkbox"
+                                [(ngModel)]="isMasterSel"
+                                (change)="checkUncheckAll($event)">
+                            Select All
+                        </th>
+
+                        <th class="text">S.No</th>
+                        <th class="text">Limit Code</th>
+                        <th class="text">Limit Name</th>
+                        <th class="text">Max Value</th>
+                        <th class="text">Status</th>
+                        <th class="text">Edit</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let m of form.list; let i = index">
+
+                        <td class="text">
+                            <input #checkboxes type="checkbox"
+                                (change)="checklistUpdate()"
+                                [id]="m.id"
+                                [value]="m.id">
+                        </td>
+
+                        <td class="text">{{(form.pageNo*5)+i+1}}</td>
+                        <td class="text">{{m.limitCode}}</td>
+                        <td class="text">{{m.limitName}}</td>
+                        <td class="text">{{m.maxValue}}</td>
+                        <td class="text">{{m.status}}</td>
+
+                        <td class="text">
+                            <a (click)="forward('/limit/' + m.id)" style="cursor:pointer;">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+        <!-- BUTTONS -->
+        <table width="100%" *ngIf="form.list.length > 0">
+            <tr>
+
+                <td>
+                    <button class="btn btn-warning"
+                        (click)="previous()"
+                        [disabled]="form.pageNo == 0">
+                        Previous
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-primary"
+                        (click)="forward('/limit')">
+                        New
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-danger"
+                        (click)="deleteMany()">
+                        Delete
+                    </button>
+                </td>
+
+                <td align="right">
+                    <button class="btn btn-warning"
+                        (click)="next()"
+                        [disabled]="form.nextListSize == 0">
+                        Next
+                    </button>
+                </td>
+
+            </tr>
+        </table>
+
+        <!-- BACK -->
+        <div class="text-center mt-3" *ngIf="form.list.length == 0">
+            <button class="btn btn-primary" (click)="reset()">
+                Back
+            </button>
+        </div>
+
+    </div>
+
+</div>

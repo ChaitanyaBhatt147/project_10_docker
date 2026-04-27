@@ -45,18 +45,24 @@
 
                         <!-- TITLE -->
                         <h3 class="text-center text-primary">
-                            {{ form.data.id > 0 
-                                ? ('Course.Title.Update' | translate) 
-                                : ('Course.Title.Add' | translate) }}
+                            {{ form.data.id > 0
+                            ? ('Course.Title.Update' | translate)
+                            : ('Course.Title.Add' | translate) }}
                         </h3>
 
                         <!-- MESSAGE -->
                         <div class="text-center mb-2">
                             <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                             <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                         </div>
 
@@ -64,19 +70,15 @@
                         <label class="form-label">
                             {{'Course.Fields.Name' | translate}} *
                         </label>
-                        <input type="text" class="form-control mb-2"
-                               [(ngModel)]="form.data.name"
-                               name="name"
-                               placeholder="Enter Course Name">
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.name" name="name"
+                            placeholder="Enter Course Name">
                         <div class="error-text">{{form.inputerror.name}}</div>
 
                         <!-- DURATION -->
                         <label class="form-label">
                             {{'Course.Fields.Duration' | translate}} *
                         </label>
-                        <select class="form-control mb-2"
-                                [(ngModel)]="form.data.duration"
-                                name="duration">
+                        <select class="form-control mb-2" [(ngModel)]="form.data.duration" name="duration">
                             <option value="undefined">{{'Common.Select' | translate}}</option>
                             <option [value]="1">1 Year</option>
                             <option [value]="2">2 Year</option>
@@ -90,37 +92,26 @@
                         <label class="form-label">
                             {{'Course.Fields.Description' | translate}} *
                         </label>
-                        <textarea class="form-control mb-2"
-                                  [(ngModel)]="form.data.description"
-                                  name="description"
-                                  rows="3"
-                                  placeholder="Enter Short Description"></textarea>
+                        <textarea class="form-control mb-2" [(ngModel)]="form.data.description" name="description"
+                            rows="3" placeholder="Enter Short Description"></textarea>
                         <div class="error-text">{{form.inputerror.description}}</div>
 
                         <!-- BUTTONS -->
                         <div class="text-center mt-3">
 
-                            <button class="btn btn-success me-2"
-                                    *ngIf="!form.data.id"
-                                    (click)="submit()">
+                            <button class="btn btn-success me-2" *ngIf="!form.data.id" (click)="submit()">
                                 {{'Common.Save' | translate}}
                             </button>
 
-                            <button class="btn btn-warning me-2"
-                                    *ngIf="!form.data.id"
-                                    (click)="reset()">
+                            <button class="btn btn-warning me-2" *ngIf="!form.data.id" (click)="reset()">
                                 {{'Common.Reset' | translate}}
                             </button>
 
-                            <button class="btn btn-success me-2"
-                                    *ngIf="form.data.id"
-                                    (click)="submit()">
+                            <button class="btn btn-success me-2" *ngIf="form.data.id" (click)="submit()">
                                 {{'Common.Update' | translate}}
                             </button>
 
-                            <button class="btn btn-primary"
-                                    *ngIf="form.data.id"
-                                    (click)="forward('/courselist')">
+                            <button class="btn btn-primary" *ngIf="form.data.id" (click)="forward('/courselist')">
                                 {{'Common.Back' | translate}}
                             </button>
 

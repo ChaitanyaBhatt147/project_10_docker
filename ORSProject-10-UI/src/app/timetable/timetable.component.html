@@ -45,18 +45,24 @@
 
                         <!-- TITLE -->
                         <h3 class="text-center text-primary">
-                            {{ form.data.id > 0 
-                                ? ('Timetable.Title.Update' | translate) 
-                                : ('Timetable.Title.Add' | translate) }}
+                            {{ form.data.id > 0
+                            ? ('Timetable.Title.Update' | translate)
+                            : ('Timetable.Title.Add' | translate) }}
                         </h3>
 
                         <!-- MESSAGE -->
                         <div class="text-center mb-2">
                             <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                             <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                         </div>
 
@@ -64,10 +70,8 @@
                         <label class="form-label">{{'Timetable.Fields.Course' | translate}} *</label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-graduation-cap"></i></span>
-                            <select class="form-control"
-                                    [ngClass]="{'is-invalid': form.inputerror.courseId}"
-                                    [(ngModel)]="form.data.courseId"
-                                    name="courseId">
+                            <select class="form-control" [ngClass]="{'is-invalid': form.inputerror.courseId}"
+                                [(ngModel)]="form.data.courseId" name="courseId">
                                 <option value="undefined">{{'Common.Select' | translate}}</option>
                                 <option *ngFor="let obj of form.preload.courseList" [value]="obj.key">
                                     {{obj.value}}
@@ -80,10 +84,8 @@
                         <label class="form-label">{{'Timetable.Fields.Subject' | translate}} *</label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-book"></i></span>
-                            <select class="form-control"
-                                    [ngClass]="{'is-invalid': form.inputerror.subjectId}"
-                                    [(ngModel)]="form.data.subjectId"
-                                    name="subjectId">
+                            <select class="form-control" [ngClass]="{'is-invalid': form.inputerror.subjectId}"
+                                [(ngModel)]="form.data.subjectId" name="subjectId">
                                 <option value="undefined">{{'Common.Select' | translate}}</option>
                                 <option *ngFor="let obj of form.preload.subjectList" [value]="obj.key">
                                     {{obj.value}}
@@ -96,10 +98,8 @@
                         <label class="form-label">{{'Timetable.Fields.Semester' | translate}} *</label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-layer-group"></i></span>
-                            <select class="form-control"
-                                    [ngClass]="{'is-invalid': form.inputerror.semester}"
-                                    [(ngModel)]="form.data.semester"
-                                    name="semester">
+                            <select class="form-control" [ngClass]="{'is-invalid': form.inputerror.semester}"
+                                [(ngModel)]="form.data.semester" name="semester">
                                 <option value="undefined">{{'Common.Select' | translate}}</option>
                                 <option *ngFor="let s of [1,2,3,4,5,6,7,8]" [value]="s">{{s}}</option>
                             </select>
@@ -110,11 +110,8 @@
                         <label class="form-label">{{'Timetable.Fields.ExamDate' | translate}} *</label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                            <input type="date"
-                                   class="form-control"
-                                   [(ngModel)]="form.data.examDate"
-                                   [ngModel]="form.data.examDate | date:'yyyy-MM-dd'"
-                                   name="examDate">
+                            <input type="date" class="form-control" [(ngModel)]="form.data.examDate"
+                                [ngModel]="form.data.examDate | date:'yyyy-MM-dd'" name="examDate">
                         </div>
                         <div class="error-text">{{form.inputerror.examDate}}</div>
 
@@ -122,10 +119,8 @@
                         <label class="form-label">{{'Timetable.Fields.ExamTime' | translate}} *</label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-clock"></i></span>
-                            <select class="form-control"
-                                    [ngClass]="{'is-invalid': form.inputerror.examTime}"
-                                    [(ngModel)]="form.data.examTime"
-                                    name="examTime">
+                            <select class="form-control" [ngClass]="{'is-invalid': form.inputerror.examTime}"
+                                [(ngModel)]="form.data.examTime" name="examTime">
                                 <option value="undefined">{{'Common.Select' | translate}}</option>
                                 <option value="08:00 AM to 11:00 AM">08:00 AM to 11:00 AM</option>
                                 <option value="12:00 PM to 03:00 PM">12:00 PM to 03:00 PM</option>
@@ -138,39 +133,29 @@
                         <label class="form-label">{{'Timetable.Fields.Description' | translate}} *</label>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><i class="fa fa-align-left"></i></span>
-                            <textarea class="form-control"
-                                      [ngClass]="{'is-invalid': form.inputerror.description}"
-                                      [(ngModel)]="form.data.description"
-                                      name="description"
-                                      rows="3"
-                                      placeholder="Enter Description"></textarea>
+                            <textarea class="form-control" [ngClass]="{'is-invalid': form.inputerror.description}"
+                                [(ngModel)]="form.data.description" name="description" rows="3"
+                                placeholder="Enter Description"></textarea>
                         </div>
                         <div class="error-text">{{form.inputerror.description}}</div>
 
                         <!-- BUTTONS -->
                         <div class="text-center mt-3">
 
-                            <button class="btn btn-success me-2 px-4 shadow"
-                                    *ngIf="!form.data.id"
-                                    (click)="submit()">
+                            <button class="btn btn-success me-2 px-4 shadow" *ngIf="!form.data.id" (click)="submit()">
                                 {{'Common.Save' | translate}}
                             </button>
 
-                            <button class="btn btn-warning me-2 px-4 shadow"
-                                    *ngIf="!form.data.id"
-                                    (click)="reset()">
+                            <button class="btn btn-warning me-2 px-4 shadow" *ngIf="!form.data.id" (click)="reset()">
                                 {{'Common.Reset' | translate}}
                             </button>
 
-                            <button class="btn btn-success me-2 px-4 shadow"
-                                    *ngIf="form.data.id"
-                                    (click)="submit()">
+                            <button class="btn btn-success me-2 px-4 shadow" *ngIf="form.data.id" (click)="submit()">
                                 {{'Common.Update' | translate}}
                             </button>
 
-                            <button class="btn btn-primary px-4 shadow"
-                                    *ngIf="form.data.id"
-                                    (click)="forward('/timetablelist')">
+                            <button class="btn btn-primary px-4 shadow" *ngIf="form.data.id"
+                                (click)="forward('/timetablelist')">
                                 {{'Common.Back' | translate}}
                             </button>
 

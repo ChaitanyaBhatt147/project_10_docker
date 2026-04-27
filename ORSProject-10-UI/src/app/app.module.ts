@@ -40,6 +40,28 @@ import { ChangepasswordComponent } from './user/changepassword.component';
 import { MyprofileComponent } from './user/myprofile.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmerit-list.component';
+import { BranchManagerComponent } from './branch-manager/branch-manager.component';
+import { BranchManagerListComponent } from './branch-manager/branch-manager-list.component';
+import { CriptocurrencyComponent } from './criptocurrency/criptocurrency.component';
+import { CriptocurrencylistComponent } from './criptocurrency/criptocurrencylist.component';
+import { ClickComponent } from './click/click.component';
+import { ClickListComponent } from './click/click-list.component';
+import { LoanComponent } from './loan/loan.component';
+import { LoanlistComponent } from './loan/loanlist.component';
+import { LimitComponent } from './limit/limit.component';
+import { LimitListComponent } from './limit/limit-list.component';
+import { CredentialComponent } from './credential/credential.component';
+import { CredentialListComponent } from './credential/credential-list.component';
+import { RateLimitComponent } from './rate-limit/rate-limit.component';
+import { RateLimitListComponent } from './rate-limit/rate-limit-list.component';
+import { MetadataComponent } from './metadata/metadata.component';
+import { MetadataListComponent } from './metadata/metadata-list.component';
+import { SubscriptionPlanComponent } from './subscription-plan/subscription-plan.component';
+import { SubscriptionPlanListComponent } from './subscription-plan/subscription-plan-list.component';
+import { SLAComponent } from './sla/sla.component';
+import { SLAListComponent } from './sla/slalist.component';
+import { DonationCampComponent } from './donation-camp/donation-camp.component';
+import { DonationCampListComponent } from './donation-camp/donation-camp-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')};
@@ -74,7 +96,29 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChangepasswordComponent,
     MyprofileComponent,
     GetmarksheetComponent,
-    MarksheetmeritlistComponent
+    MarksheetmeritlistComponent,
+    BranchManagerComponent,
+    BranchManagerListComponent,
+    CriptocurrencyComponent,
+    CriptocurrencylistComponent,
+    ClickComponent,
+    ClickListComponent,
+    LoanComponent,
+    LoanlistComponent,
+    LimitComponent,
+    LimitListComponent,
+    CredentialComponent,
+    CredentialListComponent,
+    RateLimitComponent,
+    RateLimitListComponent,
+    MetadataComponent,
+    MetadataListComponent,
+    SubscriptionPlanComponent,
+    SubscriptionPlanListComponent,
+    SLAComponent,
+    SLAListComponent,
+    DonationCampComponent,
+    DonationCampListComponent
   ],
   imports: [
     BrowserModule,

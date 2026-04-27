@@ -1,0 +1,148 @@
+<style>
+    .hm {
+        background-image: url('assets/img/addPage.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 120px;
+        padding-bottom: 90px;
+        min-height: 100vh;
+    }
+
+    .grad {
+        background-image: linear-gradient(to bottom right, #ffd3ac, #f79d65);
+    }
+
+    .card-style {
+        box-shadow: 9px 8px 7px #001a33;
+        border-radius: 12px;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .error-text {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<div class="hm">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 form-container">
+
+                <div class="card card-style grad">
+                    <div class="card-body">
+
+                        <!-- TITLE -->
+                        <h3 class="text-center text-primary">
+                            {{ form.data.id > 0
+                            ? ('RateLimit.Title.Update' | translate)
+                            : ('RateLimit.Title.Add' | translate) }}
+                        </h3>
+
+                        <!-- MESSAGE -->
+                        <div class="text-center mb-2">
+                            <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
+                                {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                            <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
+                                {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- RATE LIMIT CODE -->
+                        <label class="form-label">
+                            {{'RateLimit.Fields.Code' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                            [(ngModel)]="form.data.rateLimitCode"
+                            name="rateLimitCode"
+                            placeholder="Enter Rate Limit Code">
+                        <div class="error-text">{{form.inputerror.rateLimitCode}}</div>
+
+                        <!-- API NAME -->
+                        <label class="form-label">
+                            {{'RateLimit.Fields.ApiName' | translate}} *
+                        </label>
+                        <input type="text" class="form-control mb-2"
+                            [(ngModel)]="form.data.apiName"
+                            name="apiName"
+                            placeholder="Enter API Name">
+                        <div class="error-text">{{form.inputerror.apiName}}</div>
+
+                        <!-- LIMIT PER MIN -->
+                        <label class="form-label">
+                            {{'RateLimit.Fields.LimitPerMin' | translate}} *
+                        </label>
+                        <input type="number" class="form-control mb-2"
+                            [(ngModel)]="form.data.limitPerMin"
+                            name="limitPerMin"
+                            placeholder="Enter Limit Per Minute">
+                        <div class="error-text">{{form.inputerror.limitPerMin}}</div>
+
+                        <!-- STATUS -->
+                        <label class="form-label">
+                            {{'RateLimit.Fields.Status' | translate}} *
+                        </label>
+                        <select class="form-control mb-2"
+                            [(ngModel)]="form.data.status"
+                            name="status">
+                            <option value="">{{'Common.Select' | translate}}</option>
+                            <option value="ACTIVE">ACTIVE</option>
+                            <option value="INACTIVE">INACTIVE</option>
+                        </select>
+                        <div class="error-text">{{form.inputerror.status}}</div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button class="btn btn-success me-2"
+                                *ngIf="!form.data.id"
+                                (click)="submit()">
+                                {{'Common.Save' | translate}}
+                            </button>
+
+                            <button class="btn btn-warning me-2"
+                                *ngIf="!form.data.id"
+                                (click)="reset()">
+                                {{'Common.Reset' | translate}}
+                            </button>
+
+                            <button class="btn btn-success me-2"
+                                *ngIf="form.data.id"
+                                (click)="submit()">
+                                {{'Common.Update' | translate}}
+                            </button>
+
+                            <button class="btn btn-primary"
+                                *ngIf="form.data.id"
+                                (click)="forward('/ratelimitlist')">
+                                {{'Common.Back' | translate}}
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

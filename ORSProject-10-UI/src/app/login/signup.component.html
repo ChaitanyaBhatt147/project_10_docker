@@ -52,9 +52,15 @@
                         <div class="text-center mb-2">
                             <div *ngIf="!form.error && form.message" class="alert alert-success p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                             <div *ngIf="form.error && form.message" class="alert alert-danger p-1">
                                 {{ form.message }}
+                                <button type="button" class="close" (click)="closeMessage()">
+                                    <span>&times;</span>
+                                </button>
                             </div>
                         </div>
 
@@ -62,9 +68,7 @@
                         <label class="form-label">
                             {{'User.Fields.FirstName' | translate}} *
                         </label>
-                        <input type="text" class="form-control mb-2"
-                            [(ngModel)]="form.data.firstName"
-                            name="firstName"
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.firstName" name="firstName"
                             [placeholder]="'User.Placeholders.FirstName' | translate">
                         <div class="error-text">{{form.inputerror.firstName}}</div>
 
@@ -72,9 +76,7 @@
                         <label class="form-label">
                             {{'User.Fields.LastName' | translate}} *
                         </label>
-                        <input type="text" class="form-control mb-2"
-                            [(ngModel)]="form.data.lastName"
-                            name="lastName"
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.lastName" name="lastName"
                             [placeholder]="'User.Placeholders.LastName' | translate">
                         <div class="error-text">{{form.inputerror.lastName}}</div>
 
@@ -82,9 +84,7 @@
                         <label class="form-label">
                             {{'User.Fields.LoginId' | translate}} *
                         </label>
-                        <input type="text" class="form-control mb-2"
-                            [(ngModel)]="form.data.loginId"
-                            name="loginId"
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.loginId" name="loginId"
                             [placeholder]="'User.Placeholders.LoginId' | translate">
                         <div class="error-text">{{form.inputerror.loginId}}</div>
 
@@ -92,29 +92,23 @@
                         <label class="form-label">
                             {{'User.Fields.Password' | translate}} *
                         </label>
-                        <input type="password" class="form-control mb-2"
-                            [(ngModel)]="form.data.password"
-                            name="password"
-                            [placeholder]="'User.Placeholders.Password' | translate">
+                        <input type="password" class="form-control mb-2" [(ngModel)]="form.data.password"
+                            name="password" [placeholder]="'User.Placeholders.Password' | translate">
                         <div class="error-text">{{form.inputerror.password}}</div>
 
                         <!-- DOB -->
                         <label class="form-label">
                             {{'User.Fields.DOB' | translate}} *
                         </label>
-                        <input type="date" class="form-control mb-2"
-                            [(ngModel)]="form.data.dob"
-                            [ngModel]="form.data.dob | date:'yyyy-MM-dd'"
-                            name="dob">
+                        <input type="date" class="form-control mb-2" [(ngModel)]="form.data.dob"
+                            [ngModel]="form.data.dob | date:'yyyy-MM-dd'" name="dob" max="datepicker.max">
                         <div class="error-text">{{form.inputerror.dob}}</div>
 
                         <!-- GENDER -->
                         <label class="form-label">
                             {{'User.Fields.Gender' | translate}} *
                         </label>
-                        <select class="form-control mb-2"
-                            [(ngModel)]="form.data.gender"
-                            name="gender">
+                        <select class="form-control mb-2" [(ngModel)]="form.data.gender" name="gender">
                             <option value="undefined">{{'Common.Select' | translate}}</option>
                             <option value="Male">{{'GenderOptions.Male' | translate}}</option>
                             <option value="Female">{{'GenderOptions.Female' | translate}}</option>
@@ -125,11 +119,8 @@
                         <label class="form-label">
                             {{'User.Fields.Mobile' | translate}} *
                         </label>
-                        <input type="text" class="form-control mb-2"
-                            [(ngModel)]="form.data.phone"
-                            name="phone"
-                            maxlength="10"
-                            [placeholder]="'User.Placeholders.Mobile' | translate">
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.phone" name="phone"
+                            maxlength="10" [placeholder]="'User.Placeholders.Mobile' | translate">
                         <div class="error-text">{{form.inputerror.phone}}</div>
 
                         <!-- BUTTONS -->

@@ -32,10 +32,16 @@
         <!-- MESSAGE -->
         <div *ngIf="form.error" class="alert alert-danger text-center">
             {{form.message}}
+            <button type="button" class="close" (click)="closeMessage()">
+                                <span>&times;</span>
+                            </button>
         </div>
 
         <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
             {{form.message}}
+            <button type="button" class="close" (click)="closeMessage()">
+                                <span>&times;</span>
+                            </button>
         </div>
 
         <!-- SEARCH -->

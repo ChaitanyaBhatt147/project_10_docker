@@ -18,7 +18,7 @@ pipeline {
         // -------- CLEAN WORKSPACE --------
         stage('Cleanup Workspace') {
             steps {
-                deleteDir()
+                cleanWs()
             }
         }
 
@@ -40,7 +40,7 @@ pipeline {
         stage('Build Angular') {
             steps {
                 dir('ORSProject-10-UI') {
-                    bat 'npm install'
+                    bat 'npm ci'
                     bat 'npm run build --prod'
                 }
             }
@@ -73,7 +73,7 @@ pipeline {
         stage('Clean Docker') {
             steps {
                 bat '''
-                docker-compose down
+                docker-compose stop
                 '''
             }
         }
@@ -106,7 +106,7 @@ pipeline {
         // -------- BUILD DOCKER IMAGES --------
         stage('Docker Build') {
             steps {
-                bat 'docker-compose build --no-cache'
+                bat 'docker-compose build'
             }
         }
 

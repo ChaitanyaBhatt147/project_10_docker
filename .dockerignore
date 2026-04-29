@@ -1,0 +1,12 @@
+node_modules
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+README.md
+
+ORSProject-10-UI/node_modules
+ORSProject-10-UI/.angular
+ORSProject-10-UI/dist
+
+ORSProject-10/target

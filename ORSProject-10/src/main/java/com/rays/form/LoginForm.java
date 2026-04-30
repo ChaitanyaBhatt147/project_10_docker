@@ -2,6 +2,7 @@ package com.rays.form;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 /**
  * Form class for Login functionality.
@@ -21,13 +22,21 @@ public class LoginForm {
 	 * Login ID (must be a valid email).
 	 */
 	@NotEmpty(message = "Login Id is required")
-	@Email
+	@Email(message = "Invalid Email format")
+	@Pattern(
+		regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",
+		message = "Invalid Email format"
+	)
 	private String loginId;
 
 	/**
 	 * User password.
 	 */
 	@NotEmpty(message = "Password is required")
+	@Pattern(
+		regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&]).{6,8}$",
+		message = "Password must be 6-8 characters and include letter, number & special character"
+	)
 	private String password;
 
 	/**

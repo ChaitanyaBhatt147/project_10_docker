@@ -1,6 +1,7 @@
 package com.rays.form;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import com.rays.common.BaseForm;
 
@@ -21,6 +22,10 @@ public class ForgetPasswordForm extends BaseForm {
 	 * Login ID of the user.
 	 */
 	@NotEmpty(message = "Login Id is required")
+	@Pattern(
+		regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",
+		message = "Invalid Email format"
+	)
 	private String loginId;
 
 	/**

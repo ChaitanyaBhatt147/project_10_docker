@@ -1,6 +1,7 @@
 package com.rays.form;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
@@ -33,12 +34,14 @@ public class RoleForm extends BaseForm {
 	 * Role name.
 	 */
 	@NotEmpty(message = "Name is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "Role Name must contain only alphabets")
 	private String name;
 
 	/**
 	 * Role description.
 	 */
 	@NotEmpty(message = "Description is required")
+	@Pattern(regexp = "^[A-Za-z0-9 ,.\\-]{5,200}$", message = "Invalid Description")
 	private String description;
 
 	public String getName() {

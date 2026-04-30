@@ -25,31 +25,38 @@ public class MyProfileForm {
 	 * First name of the user.
 	 */
 	@NotEmpty(message = "First Name is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "First Name must contain only alphabets")
 	private String firstName;
 
 	/**
 	 * Last name of the user.
 	 */
 	@NotEmpty(message = "Last Name is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "Last Name must contain only alphabets")
 	private String lastName;
 
 	/**
 	 * Login ID of the user.
 	 */
 	@NotEmpty(message = "Login Id is required")
+	@Pattern(
+		regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",
+		message = "Invalid Email format"
+	)
 	private String loginId;
 
 	/**
 	 * Gender of the user.
 	 */
 	@NotEmpty(message = "Gender is required")
+	@Pattern(regexp = "^(Male|Female|Other)$", message = "Invalid Gender")
 	private String gender;
 
 	/**
 	 * Mobile number (must be 10 digits).
 	 */
 	@NotEmpty(message = "Mobile No is required")
-	@Pattern(regexp = "(^$|[0-9]{10})")
+	@Pattern(regexp = "^[6-9][0-9]{9}$", message = "Invalid Mobile Number")
 	private String phone;
 
 	/**

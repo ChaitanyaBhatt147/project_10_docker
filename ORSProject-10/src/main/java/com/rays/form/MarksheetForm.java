@@ -4,6 +4,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
@@ -28,6 +29,7 @@ public class MarksheetForm extends BaseForm {
 	 * Roll number of the student.
 	 */
 	@NotEmpty(message = "Roll No is required")
+	@Pattern(regexp = "^[A-Za-z0-9]+$", message = "Roll No must be alphanumeric")
 	protected String rollNo = null;
 
 	/**
@@ -40,6 +42,7 @@ public class MarksheetForm extends BaseForm {
 	/**
 	 * Student name.
 	 */
+	@Pattern(regexp = "^[A-Za-z ]*$", message = "Name must contain only alphabets")
 	protected String name = null;
 
 	/**

@@ -32,4 +32,5 @@ export class EndpointServiceService {
   public SUBSCRIPTIONPLAN = this.SERVER_URL + "/SubscriptionPlan";
   public SLA = this.SERVER_URL + "/SLA";
   public DONATIONCAMP = this.SERVER_URL + "/DonationCamp";
+  public BLOCKLIST = this.SERVER_URL + "/BlockList";
 }

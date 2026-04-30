@@ -1,6 +1,7 @@
 package com.rays.form;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
@@ -24,18 +25,21 @@ public class CourseForm extends BaseForm {
 	 * Course name.
 	 */
 	@NotEmpty(message = "Name is required")
+	@Pattern(regexp = "^[A-Za-z0-9 .,&-]{2,50}$", message = "Invalid Course Name")
 	private String name;
 
 	/**
 	 * Course duration.
 	 */
 	@NotEmpty(message = "Duration is required")
+	@Pattern(regexp = "^[0-9 ]+(Days|Months|Years)$", message = "Duration must be like '3 Months', '6 Days'")
 	private String duration;
 
 	/**
 	 * Course description.
 	 */
 	@NotEmpty(message = "Description is required")
+	@Pattern(regexp = "^[A-Za-z0-9 ,.\\-]{5,200}$", message = "Invalid Description")
 	private String description;
 
 	public String getName() {
@@ -77,5 +81,4 @@ public class CourseForm extends BaseForm {
 
 		return dto;
 	}
-
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
@@ -59,18 +60,21 @@ public class TimeTableForm extends BaseForm {
 	 * Exam time.
 	 */
 	@NotEmpty(message = "Exam Time is required")
+	@Pattern(regexp = "^(0[1-9]|1[0-2]):[0-5][0-9](AM|PM)$", message = "Invalid Time format (e.g., 10:30AM)")
 	private String examTime;
 
 	/**
 	 * Semester.
 	 */
 	@NotEmpty(message = "Semester is required")
+	@Pattern(regexp = "^[1-8]$", message = "Semester must be between 1 and 8")
 	private String semester;
 
 	/**
 	 * Description.
 	 */
 	@NotEmpty(message = "Description is required")
+	@Pattern(regexp = "^[A-Za-z0-9 ,.\\-]{5,200}$", message = "Invalid Description")
 	private String description;
 
 	public long getCourseId() {

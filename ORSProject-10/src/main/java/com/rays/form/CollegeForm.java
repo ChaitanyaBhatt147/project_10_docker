@@ -1,7 +1,6 @@
 package com.rays.form;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import com.rays.common.BaseDTO;
@@ -27,31 +26,35 @@ public class CollegeForm extends BaseForm {
 	 * College name.
 	 */
 	@NotEmpty(message = "Name is required")
+	@Pattern(regexp = "^[A-Za-z0-9 .,&-]{2,50}$", message = "Invalid College Name")
 	private String name;
 
 	/**
 	 * College address.
 	 */
 	@NotEmpty(message = "Address is required")
+	@Pattern(regexp = "^[A-Za-z0-9 ,./#-]{5,150}$", message = "Invalid Address")
 	private String address;
 
 	/**
 	 * State of the college.
 	 */
 	@NotEmpty(message = "State is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "State must contain only alphabets")
 	private String state;
 
 	/**
 	 * City of the college.
 	 */
 	@NotEmpty(message = "City is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "City must contain only alphabets")
 	private String city;
 
 	/**
 	 * Phone number (must be 10 digits).
 	 */
-	@NotNull(message = "Phone No is required")
-	@Pattern(regexp = "(^$|[0-9]{10})")
+	@NotEmpty(message = "Phone No is required")
+	@Pattern(regexp = "^[6-9][0-9]{9}$", message = "Invalid Phone Number")
 	private String phoneNo;
 
 	public String getName() {

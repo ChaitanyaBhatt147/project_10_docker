@@ -48,6 +48,8 @@ import { SLAComponent } from './sla/sla.component';
 import { SLAListComponent } from './sla/slalist.component';
 import { DonationCampComponent } from './donation-camp/donation-camp.component';
 import { DonationCampListComponent } from './donation-camp/donation-camp-list.component';
+import { BlockListComponent } from './block-list/block-list.component';
+import { BlockListListComponent } from './block-list/block-list-list.component';
 
 const routes: Routes = [
   {
@@ -329,6 +331,18 @@ const routes: Routes = [
   {
     path: 'donationcamplist',
     component: DonationCampListComponent
+  },
+  {
+    path:'blocklist',
+    component: BlockListComponent
+  },
+  {
+    path:'blocklist/:id',
+    component: BlockListComponent
+  },
+  {
+    path:'blocklistlist',
+    component: BlockListListComponent
   }
 ];
 

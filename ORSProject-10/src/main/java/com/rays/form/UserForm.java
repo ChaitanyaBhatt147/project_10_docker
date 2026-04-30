@@ -7,21 +7,22 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
 import com.rays.dto.UserDTO;
 
 /**
- * Form class for User entity.
+ * Form class for User entity with complete validation.
  * 
  * This class is used to capture user input for User operations
  * such as create and update.
  * 
  * Features:
- * - Validates required fields like name, login ID, password, etc.
- * - Validates mobile number format (10 digits)
- * - Ensures valid role selection
+ * - Validates user details like name, email, password, etc.
+ * - Ensures proper format for phone numbers and gender
+ * - Applies strong password validation rules
  * - Converts form data into UserDTO object
  * 
  * @author Chaitanya Bhatt
@@ -32,69 +33,85 @@ public class UserForm extends BaseForm {
 	 * First name of the user.
 	 */
 	@NotEmpty(message = "First Name is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "First Name must contain only alphabets")
 	private String firstName;
 
 	/**
 	 * Last name of the user.
 	 */
 	@NotEmpty(message = "Last Name is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "Last Name must contain only alphabets")
 	private String lastName;
 
 	/**
-	 * Login ID of the user.
+	 * Login ID (email address).
 	 */
 	@NotEmpty(message = "Login Id is required")
-	@Email
+	@Email(message = "Invalid Email format")
+	@Pattern(
+		regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",
+		message = "Invalid Email format"
+	)
 	private String loginId;
 
 	/**
-	 * Password of the user.
+	 * User password (6-8 characters with at least one letter, number, and special character).
 	 */
 	@NotEmpty(message = "Password is required")
+	@Size(min = 6, max = 8, message = "Password must be between 6 and 8 characters")
+	@Pattern(
+		regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&]).*$",
+		message = "Password must contain at least one letter, one number and one special character"
+	)
 	private String password;
 
 	/**
-	 * Role ID (must be greater than 0).
+	 * Role ID associated with the user.
 	 */
 	@NotNull(message = "Role is required")
-	@Min(1)
+	@Min(value = 1, message = "Please select a valid role")
 	private Long roleId;
 
 	/**
-	 * Role name.
+	 * Role name of the user.
 	 */
-	private String roleName = null;
+	private String roleName;
 
 	/**
-	 * Date of birth.
+	 * Date of birth of the user.
 	 */
 	@NotNull(message = "Date of birth is required")
 	private Date dob;
 
 	/**
-	 * Gender.
+	 * Gender of the user.
 	 */
 	@NotEmpty(message = "Gender is required")
+	@Pattern(regexp = "^(Male|Female|Other)$", message = "Invalid Gender")
 	private String gender;
 
 	/**
-	 * Mobile number (must be 10 digits).
+	 * Primary mobile number.
 	 */
 	@NotNull(message = "Mobile No is required")
-	@Pattern(regexp = "(^$|[0-9]{10})")
+	@Pattern(regexp = "^[6-9][0-9]{9}$", message = "Invalid Mobile Number")
 	private String phone;
 
 	/**
 	 * Alternate mobile number.
 	 */
 	@NotEmpty(message = "Alternate Mobile No is required")
+	@Pattern(regexp = "^[6-9][0-9]{9}$", message = "Invalid Alternate Mobile Number")
 	private String alternateMobile;
 
 	/**
-	 * User status.
+	 * Status of the user.
 	 */
 	@NotEmpty(message = "Status is required")
+	@Pattern(regexp = "^(Active|Inactive)$", message = "Status must be Active or Inactive")
 	private String status;
+
+	// ================== GETTERS & SETTERS ==================
 
 	public String getFirstName() {
 		return firstName;
@@ -183,6 +200,8 @@ public class UserForm extends BaseForm {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	// ================== DTO CONVERSION ==================
 
 	/**
 	 * Converts form data into UserDTO.

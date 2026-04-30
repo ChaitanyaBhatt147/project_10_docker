@@ -62,6 +62,8 @@ import { SLAComponent } from './sla/sla.component';
 import { SLAListComponent } from './sla/slalist.component';
 import { DonationCampComponent } from './donation-camp/donation-camp.component';
 import { DonationCampListComponent } from './donation-camp/donation-camp-list.component';
+import { BlockListComponent } from './block-list/block-list.component';
+import { BlockListListComponent } from './block-list/block-list-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')};
@@ -118,7 +120,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     SLAComponent,
     SLAListComponent,
     DonationCampComponent,
-    DonationCampListComponent
+    DonationCampListComponent,
+    BlockListComponent,
+    BlockListListComponent
   ],
   imports: [
     BrowserModule,

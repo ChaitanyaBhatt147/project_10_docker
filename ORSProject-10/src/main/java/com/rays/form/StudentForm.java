@@ -32,18 +32,21 @@ public class StudentForm extends BaseForm {
 	 * Enrollment number of the student.
 	 */
 	@NotEmpty(message = "Enroll No is required")
+	@Pattern(regexp = "^[A-Za-z0-9]+$", message = "Enroll No must be alphanumeric")
 	private String enrolNo;
 
 	/**
 	 * First name of the student.
 	 */
 	@NotEmpty(message = "First Name is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "First Name must contain only alphabets")
 	private String firstName;
 
 	/**
 	 * Last name of the student.
 	 */
 	@NotEmpty(message = "Last Name is required")
+	@Pattern(regexp = "^[A-Za-z ]+$", message = "Last Name must contain only alphabets")
 	private String lastName;
 
 	/**
@@ -56,14 +59,18 @@ public class StudentForm extends BaseForm {
 	 * Phone number (must be 10 digits).
 	 */
 	@NotNull(message = "Phone No is required")
-	@Pattern(regexp = "(^$|[0-9]{10})")
+	@Pattern(regexp = "^[6-9][0-9]{9}$", message = "Invalid Phone Number")
 	private String phoneNo;
 
 	/**
 	 * Email address.
 	 */
 	@NotEmpty(message = "Email ID is required")
-	@Email
+	@Email(message = "Invalid Email format")
+	@Pattern(
+		regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",
+		message = "Invalid Email format"
+	)
 	private String email;
 
 	/**

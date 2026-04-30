@@ -3,6 +3,7 @@ package com.rays.form;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
@@ -39,12 +40,14 @@ public class SubjectForm extends BaseForm {
 	 * Subject name.
 	 */
 	@NotEmpty(message = "Name is required")
+	@Pattern(regexp = "^[A-Za-z0-9 .,&-]+$", message = "Invalid Subject Name")
 	private String name;
 
 	/**
 	 * Subject description.
 	 */
 	@NotEmpty(message = "Description is required")
+	@Pattern(regexp = "^[A-Za-z0-9 ,.\\-]{5,200}$", message = "Invalid Description")
 	private String description;
 
 	public long getCourseId() {

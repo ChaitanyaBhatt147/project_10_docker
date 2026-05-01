@@ -15,7 +15,7 @@ import com.rays.form.MappingForm;
 import com.rays.service.MappingServiceInt;
 
 @RestController
-@Transactional(value = "Mapping")
+@RequestMapping("Mapping")
 public class MappingCtl extends BaseCtl<MappingForm, MappingDTO, MappingServiceInt> {
 	@GetMapping("preload")
 	public ORSResponse preload() {

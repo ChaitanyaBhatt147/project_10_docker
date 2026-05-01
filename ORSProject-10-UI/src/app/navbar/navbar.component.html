@@ -429,6 +429,20 @@
                     </a>
                 </div>
             </li>
+          <!-- mapping -->
+                        <li*ngIf="isAdmin()" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Mapping
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" [routerLink]="['/mapping']">
+                                    <i class="fa fa-mouse-pointer"></i> add Mapping
+                                </a>
+                                <a class="dropdown-item" [routerLink]="['/mappinglist']">
+                                    <i class="fa fa-sort-amount-down"></i> Mapping List
+                                </a>
+                            </div>
+                        </li>
 
             <!-- PROFILE (sabko dikhega - isAdmin nahi) -->
             <li class="nav-item dropdown">

@@ -26,8 +26,6 @@ import { ChangepasswordComponent } from './user/changepassword.component';
 import { MyprofileComponent } from './user/myprofile.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmerit-list.component';
-import { BranchManagerComponent } from './branch-manager/branch-manager.component';
-import { BranchManagerListComponent } from './branch-manager/branch-manager-list.component';
 import { CriptocurrencyComponent } from './criptocurrency/criptocurrency.component';
 import { CriptocurrencylistComponent } from './criptocurrency/criptocurrencylist.component';
 import { ClickComponent } from './click/click.component';
@@ -202,18 +200,6 @@ const routes: Routes = [
   {
     path: "getmarksheet/:id",
     component: GetmarksheetComponent
-  },
-  {
-    path: 'branchmanager',
-    component: BranchManagerComponent
-  },
-  {
-    path: 'branchmanager/:id',
-    component: BranchManagerComponent
-  },
-  {
-    path: 'branchmanagerlist',
-    component: BranchManagerListComponent
   },
   {
     path: 'cryptocurrency',

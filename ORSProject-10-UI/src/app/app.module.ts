@@ -40,8 +40,6 @@ import { ChangepasswordComponent } from './user/changepassword.component';
 import { MyprofileComponent } from './user/myprofile.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmerit-list.component';
-import { BranchManagerComponent } from './branch-manager/branch-manager.component';
-import { BranchManagerListComponent } from './branch-manager/branch-manager-list.component';
 import { CriptocurrencyComponent } from './criptocurrency/criptocurrency.component';
 import { CriptocurrencylistComponent } from './criptocurrency/criptocurrencylist.component';
 import { ClickComponent } from './click/click.component';
@@ -64,6 +62,8 @@ import { DonationCampComponent } from './donation-camp/donation-camp.component';
 import { DonationCampListComponent } from './donation-camp/donation-camp-list.component';
 import { BlockListComponent } from './block-list/block-list.component';
 import { BlockListListComponent } from './block-list/block-list-list.component';
+import { MappingComponent } from './mapping/mapping.component';
+import { MappingListComponent } from './mapping/mapping-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')};
@@ -99,8 +99,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     MyprofileComponent,
     GetmarksheetComponent,
     MarksheetmeritlistComponent,
-    BranchManagerComponent,
-    BranchManagerListComponent,
     CriptocurrencyComponent,
     CriptocurrencylistComponent,
     ClickComponent,
@@ -122,7 +120,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     DonationCampComponent,
     DonationCampListComponent,
     BlockListComponent,
-    BlockListListComponent
+    BlockListListComponent,
+    MappingComponent,
+    MappingListComponent
   ],
   imports: [
     BrowserModule,

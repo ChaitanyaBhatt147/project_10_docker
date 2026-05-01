@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import com.rays.common.BaseDTO;
 
 @Entity
-@Table(name = "Limit")
+@Table(name = "Limit_table")
 public class LimitDTO extends BaseDTO{
 	@Column(name = "limit_code")
 	private String limitCode;

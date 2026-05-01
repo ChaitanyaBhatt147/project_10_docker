@@ -21,7 +21,6 @@ export class EndpointServiceService {
   public COURSE = this.SERVER_URL + "/Course";
   public TIMETABLE = this.SERVER_URL + "/TimeTable";
   public JASPERREPORT = this.SERVER_URL + "/Jasper";
-  public BRANCHMANAGER = this.SERVER_URL + "/BranchManager";
   public CRYPTOCURRENCY = this.SERVER_URL + "/Criptocurrency";
   public CLICK = this.SERVER_URL + "/Click";
   public LOAN = this.SERVER_URL + "/Loan";
@@ -33,4 +32,5 @@ export class EndpointServiceService {
   public SLA = this.SERVER_URL + "/SLA";
   public DONATIONCAMP = this.SERVER_URL + "/DonationCamp";
   public BLOCKLIST = this.SERVER_URL + "/BlockList";
+  public MAPPING = this.SERVER_URL + "/Mapping";
 }

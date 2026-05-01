@@ -145,21 +145,7 @@
                 </li>
 
                 <!-- 👉 Add remaining admin menus same pattern -->
-                <!-- BranchManager -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-                        Branch Manager
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" [routerLink]="['/branchmanager']">
-                            <i class="fa fa-calculator"></i> add Branch Manager
-                        </a>
-                        <a class="dropdown-item" [routerLink]="['/branchmanagerlist']">
-                            <i class="fa fa-sort-amount-down"></i> Branch Manager List
-                        </a>
-                    </div>
-                </li>
-
+                
                 <!-- CriptoCurrency -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -329,6 +315,21 @@
                         </a>
                         <a class="dropdown-item" [routerLink]="['/blocklist']">
                             <i class="fa fa-sort-amount-down"></i> Block List
+                        </a>
+                    </div>
+                </li>
+                
+                <!-- Mapping -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        Mapping
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" [routerLink]="['/mapping']">
+                            <i class="fa fa-mouse-pointer"></i> add Mapping
+                        </a>
+                        <a class="dropdown-item" [routerLink]="['/mappinglist']">
+                            <i class="fa fa-sort-amount-down"></i> Mapping List
                         </a>
                     </div>
                 </li>

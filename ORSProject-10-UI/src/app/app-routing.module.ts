@@ -50,6 +50,8 @@ import { DonationCampComponent } from './donation-camp/donation-camp.component';
 import { DonationCampListComponent } from './donation-camp/donation-camp-list.component';
 import { BlockListComponent } from './block-list/block-list.component';
 import { BlockListListComponent } from './block-list/block-list-list.component';
+import { MappingComponent } from './mapping/mapping.component';
+import { MappingListComponent } from './mapping/mapping-list.component';
 
 const routes: Routes = [
   {
@@ -343,6 +345,18 @@ const routes: Routes = [
   {
     path:'blocklistlist',
     component: BlockListListComponent
+  },
+  {
+    path: 'mapping',
+    component: MappingComponent
+  },
+  {
+    path: 'mapping/:id',
+    component: MappingComponent
+  },
+  {
+    path: 'mappinglist',
+    component: MappingListComponent
   }
 ];
 

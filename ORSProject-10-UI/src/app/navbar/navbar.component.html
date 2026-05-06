@@ -43,6 +43,10 @@
         width: 22px;
     }
 
+    .dropdown-item i {
+        width: 22px;
+    }
+
     .navbar-brand img {
         height: 40px;
         width: 120px;
@@ -62,7 +66,65 @@
 </style>
 
 
+<<<<<<< HEAD
+=======
+<!-- ================= GUEST NAVBAR ================= -->
+>>>>>>> 43d029de1fc0f4a06c93f9564a246214f9f371a1
 <nav *ngIf="!isLogin()" class="navbar navbar-expand-lg fixed-top aj">
+    <!-- LOGO -->
+    <a class="navbar-brand" [routerLink]="['/dashboard']">
+        <img src="/assets/img/custom.png">
+    </a>
+
+    <!-- LANGUAGE -->
+    <select #locale (change)="changeLocale(locale.value)" class="form-control lang-select">
+        <option value="undefined">{{'LocaleSelect.Select' | translate }}</option>
+        <option value="en">{{'LocaleSelect.English'| translate}}</option>
+        <option value="hi">{{'LocaleSelect.Hindi' | translate }}</option>
+        <option value="mr">{{'LocaleSelect.Marathi' | translate }}</option>
+        <option value="jp">{{'LocaleSelect.Japanese' | translate }}</option>
+        <option value="de">{{'LocaleSelect.German' | translate }}</option>
+        <option value="ru">{{'LocaleSelect.Russian' | translate }}</option>
+    </select>
+
+    <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+<<<<<<< HEAD
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav">
+=======
+>>>>>>> 43d029de1fc0f4a06c93f9564a246214f9f371a1
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Greetings.HiGuest' | translate}}
+                    <img src="assets/img/default.png" class="profile-img">
+                </a>
+                <div class="dropdown-menu" id="myNav" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/login']"><i class="fa fa-user"></i> &nbsp;&nbsp;&nbsp; {{'Log in' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/signup']"><i class="fa fa-users"></i> &nbsp; {{'User Registration' | translate}}</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<<<<<<< HEAD
+                <div class="dropdown-menu" id="myNav" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/login']"><i class="fa fa-user"></i> &nbsp; &nbsp;
+                        &nbsp; {{'Log in' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/signup']"><i class=" fa fa-users"></i> &nbsp; {{'User
+                        Registration' |
+                        translate}}</a>
+=======
+
+<!-- ================= LOGIN NAVBAR ================= -->
+<nav *ngIf="isLogin()" class="navbar navbar-expand-lg fixed-top aj">
+
     <!-- LOGO -->
     <a class="navbar-brand" [routerLink]="['/dashboard']">
         <img src="/assets/img/custom.png">
@@ -86,18 +148,346 @@
     <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav">
 
+            <!-- USER -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.User'| translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/user']">
+                        <i class="fa fa-user-circle"></i> {{'Links.AddUser' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/userlist']">
+                        <i class="fa fa-user-friends"></i> {{'Links.UserList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- MARKSHEET -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.Marksheet'| translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/marksheet']">
+                        <i class="fa fa-file"></i> {{'Links.AddMarksheet' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/marksheetlist']">
+                        <i class="fa fa-paste"></i> {{'Links.MarksheetList' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/marksheetmeritlist']">
+                        <i class="fa fa-file-alt"></i> {{'Links.MarksheetMeritList' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/getmarksheet']">
+                        <i class="fa fa-copy"></i> {{'Links.GetMarksheet' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- ROLE -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.Role'| translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/role']">
+                        <i class="fa fa-user-tie"></i> {{'Links.AddRole' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/rolelist']">
+                        <i class="fa fa-user-friends"></i> {{'Links.RoleList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- COLLEGE -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.College'| translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/college']">
+                        <i class="fa fa-university"></i> {{'Links.AddCollege' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/collegelist']">
+                        <i class="fa fa-building"></i> {{'Links.CollegeList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- COURSE -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.Course' | translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/course']">
+                        <i class="fa fa-book-open"></i> {{'Links.AddCourse' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/courselist']">
+                        <i class="fa fa-sort-amount-down"></i> {{'Links.CourseList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- STUDENT -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.Student'| translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/student']">
+                        <i class="fa fa-user-circle"></i> {{'Links.AddStudent' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/studentlist']">
+                        <i class="fa fa-users"></i> {{'Links.StudentList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- FACULTY -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.Faculty'| translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/faculty']">
+                        <i class="fa fa-user-tie"></i> {{'Links.AddFaculty' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/facultylist']">
+                        <i class="fa fa-users"></i> {{'Links.FacultyList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- TIMETABLE -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.Timetable' | translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/timetable']">
+                        <i class="fa fa-clock"></i> {{'Links.AddTimetable' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/timetablelist']">
+                        <i class="fa fa-clock"></i> {{'Links.TimetableList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- SUBJECT -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    {{'Common.Title.Subject' | translate}}
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/subject']">
+                        <i class="fa fa-calculator"></i> {{'Links.AddSubject' | translate}}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/subjectlist']">
+                        <i class="fa fa-sort-amount-down"></i> {{'Links.SubjectList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <!-- BRANCH MANAGER -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Branch Manager
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/branchmanager']">
+                        <i class="fa fa-calculator"></i> Add Branch Manager
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/branchmanagerlist']">
+                        <i class="fa fa-sort-amount-down"></i> Branch Manager List
+                    </a>
+                </div>
+            </li>
+
+            <!-- CRYPTOCURRENCY -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Cryptocurrency
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/cryptocurrency']">
+                        <i class="fa fa-coins"></i> Add Cryptocurrency
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/cryptocurrencylist']">
+                        <i class="fa fa-sort-amount-down"></i> Cryptocurrency List
+                    </a>
+                </div>
+            </li>
+
+            <!-- CLICK -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Click
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/click']">
+                        <i class="fa fa-mouse-pointer"></i> Add Click
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/clicklist']">
+                        <i class="fa fa-sort-amount-down"></i> Click List
+                    </a>
+                </div>
+            </li>
+
+            <!-- LOAN -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Loan
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/loan']">
+                        <i class="fa fa-mouse-pointer"></i> Add Loan
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/loanlist']">
+                        <i class="fa fa-sort-amount-down"></i> Loan List
+                    </a>
+                </div>
+            </li>
+
+            <!-- LIMIT -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Limit
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/limit']">
+                        <i class="fa fa-mouse-pointer"></i> Add Limit
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/limitlist']">
+                        <i class="fa fa-sort-amount-down"></i> Limit List
+                    </a>
+                </div>
+            </li>
+
+            <!-- CREDENTIAL -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Credential
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/credential']">
+                        <i class="fa fa-mouse-pointer"></i> Add Credential
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/credentiallist']">
+                        <i class="fa fa-sort-amount-down"></i> Credential List
+                    </a>
+                </div>
+            </li>
+
+            <!-- RATE LIMIT -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Rate Limit
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/ratelimit']">
+                        <i class="fa fa-mouse-pointer"></i> Add Rate Limit
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/ratelimitlist']">
+                        <i class="fa fa-sort-amount-down"></i> Rate Limit List
+                    </a>
+                </div>
+            </li>
+
+            <!-- METADATA -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Metadata
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/metadata']">
+                        <i class="fa fa-mouse-pointer"></i> Add Metadata
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/metadatalist']">
+                        <i class="fa fa-sort-amount-down"></i> Metadata List
+                    </a>
+                </div>
+            </li>
+
+            <!-- SUBSCRIPTION PLAN -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Subscription Plan
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/subscriptionplan']">
+                        <i class="fa fa-mouse-pointer"></i> Add Subscription Plan
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/subscriptionplanlist']">
+                        <i class="fa fa-sort-amount-down"></i> Subscription Plan List
+                    </a>
+                </div>
+            </li>
+
+            <!-- SLA -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    SLA
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/sla']">
+                        <i class="fa fa-mouse-pointer"></i> Add SLA
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/slalist']">
+                        <i class="fa fa-sort-amount-down"></i> SLA List
+                    </a>
+                </div>
+            </li>
+
+            <!-- DONATION CAMP -->
+            <li *ngIf="isAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    Donation Camp
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" [routerLink]="['/donationcamp']">
+                        <i class="fa fa-mouse-pointer"></i> Add Donation Camp
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/donationcamplist']">
+                        <i class="fa fa-sort-amount-down"></i> Donation Camp List
+                    </a>
+                </div>
+            </li>
+          <!-- mapping -->
+                        <li *ngIf="isAdmin()" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Mapping
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" [routerLink]="['/mapping']">
+                                    <i class="fa fa-mouse-pointer"></i> add Mapping
+                                </a>
+                                <a class="dropdown-item" [routerLink]="['/mappinglist']">
+                                    <i class="fa fa-sort-amount-down"></i> Mapping List
+                                </a>
+                            </div>
+                        </li>
+
+            <!-- PROFILE (sabko dikhega - isAdmin nahi) -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    {{'Greetings.HiGuest' | translate}}
-                    <img src="assets/img/default.png" class="profile-img">
+                    {{'Greetings.HiUser' | translate:{name: form.data.fname, role: form.data.role} }}
+                    <img src="http://localhost:8080/User/profilePic/{{form.data.userId}}" class="profile-img">
                 </a>
-
-                <div class="dropdown-menu" id="myNav" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/login']"><i class="fa fa-user"></i> &nbsp; &nbsp;
-                        &nbsp; {{'Log in' | translate}}</a>
-                    <a class="dropdown-item" [routerLink]="['/signup']"><i class=" fa fa-users"></i> &nbsp; {{'User
-                        Registration' |
-                        translate}}</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" (click)="forward()">
+                        <i class="fa fa-user-tie"></i> {{'Links.MyProfile' | translate}}
+                    </a>
+                    <a class="dropdown-item" href="assets/doc/index.html" target="_blank">
+                        <i class="fa fa-book"></i> &nbsp; Javadoc
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/changepassword']">
+                        <i class="fa fa-edit"></i> {{'Links.ChangePassword' | translate}}
+                    </a>
+                    <a class="dropdown-item" (click)="logout()">
+                        <i class="fa fa-sign-out-alt"></i> {{'Links.Logout' | translate}}
+                    </a>
+>>>>>>> 43d029de1fc0f4a06c93f9564a246214f9f371a1
                 </div>
             </li>
             <li>
@@ -107,6 +497,7 @@
     </div>
 
 </nav>
+<<<<<<< HEAD
 
 <!-- ================= LOGIN NAVBAR ================= -->
 <nav *ngIf="isLogin()" class="navbar navbar-expand-lg fixed-top aj">
@@ -963,3 +1354,5 @@
         </ul>
     </div>
 </nav>
+=======
+>>>>>>> 43d029de1fc0f4a06c93f9564a246214f9f371a1

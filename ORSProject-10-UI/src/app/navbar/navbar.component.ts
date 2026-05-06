@@ -55,14 +55,14 @@ export class NavbarComponent {
   }
 
   isAdmin(): boolean {
-    return localStorage.getItem('role') === 'admin';
+    return localStorage.getItem('role') === 'Admin';
   }
 
   isFaculty(): boolean {
-    return localStorage.getItem('role') === 'faculty';
+    return localStorage.getItem('role') === 'Faculty';
   }
 
   isStudent(): boolean {
-    return localStorage.getItem('role') === 'student';
+    return localStorage.getItem('role') === 'Student';
   }
 }

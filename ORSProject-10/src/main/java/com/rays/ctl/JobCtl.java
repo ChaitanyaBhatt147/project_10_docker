@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rays.common.BaseCtl;
 import com.rays.common.DropdownList;
 import com.rays.common.ORSResponse;
-import com.rays.dto.MappingDTO;
-import com.rays.form.MappingForm;
-import com.rays.service.MappingServiceInt;
+import com.rays.dto.JobDTO;
+import com.rays.form.JobForm;
+import com.rays.service.JobServiceInt;
 
 @RestController
-@RequestMapping("Mapping")
-public class MappingCtl extends BaseCtl<MappingForm, MappingDTO, MappingServiceInt> {
-	
+@RequestMapping(value = "Job")
+public class JobCtl extends BaseCtl<JobForm, JobDTO, JobServiceInt> {
 	@GetMapping("preload")
 	public ORSResponse preload() {
 

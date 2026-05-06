@@ -1,6 +1,7 @@
 package com.rays.config;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -9,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -19,44 +20,41 @@ import com.rays.common.UserContext;
 import com.rays.common.UserContextHolder;
 import com.rays.dto.UserDTO;
 import com.rays.service.JWTUserDetailsService;
+import com.rays.service.UserServiceInt;
 
 /**
- * JWT Request Filter for handling authentication using JSON Web Token.
+ * JWTRequestFilter class for handling JWT-based authentication.
  * 
- * This filter is executed once per request and is responsible for:
- * - Extracting JWT token from Authorization header
- * - Validating the token
- * - Loading user details
- * - Setting authentication in Spring Security context
- * - Storing UserContext in ThreadLocal for application-wide access
+ * This filter intercepts every HTTP request and performs:
  * 
- * If token is invalid or expired, it blocks the request and returns 401.
+ * - Extraction of JWT token from Authorization header - Validation of token -
+ * Authentication setup in Spring Security context - Setting UserContext for
+ * current request
  * 
- * @author Chaitanya Bhatt
+ * It ensures that only authenticated users can access secured APIs.
+ * 
+ * @author Ankit Rawat
  */
 @Component
 public class JWTRequestFilter extends OncePerRequestFilter {
 
-	/**
-	 * Utility class for JWT operations like extraction and validation.
-	 */
 	@Autowired
 	private JWTUtil jwtUtil;
 
-	/**
-	 * Service to load user details for authentication.
-	 */
 	@Autowired
 	private JWTUserDetailsService jwtUserDetailsService;
 
+	@Autowired
+	private UserServiceInt userService;
+
 	/**
-	 * Filters each request to validate JWT token and set authentication context.
+	 * Filters incoming requests and validates JWT token.
 	 * 
-	 * @param request HTTP request
-	 * @param response HTTP response
+	 * @param request     HTTP request
+	 * @param response    HTTP response
 	 * @param filterChain filter chain
-	 * @throws ServletException exception during filtering
-	 * @throws IOException input/output exception
+	 * @throws ServletException exception
+	 * @throws IOException      exception
 	 */
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -64,56 +62,45 @@ public class JWTRequestFilter extends OncePerRequestFilter {
 
 		final String authorizationHeader = request.getHeader("Authorization");
 
-		System.out.println("JWT Token ======>>>>> " + authorizationHeader);
-
-		// Check if Authorization header contains Bearer token
 		if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-
-			System.out.println("JWT Token ======>>>>> iiiiinnnnnn");
 
 			String jwtToken = authorizationHeader.substring(7);
 
 			try {
 
-				// Extract loginId from token
 				String loginId = jwtUtil.extractLoginId(jwtToken);
 
-				// Validate token
 				if (!jwtUtil.validateToken(jwtToken, loginId)) {
 					throw new Exception("Invalid JWT token");
 				}
 
-				// Authenticate user if not already authenticated
-				if (loginId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+				   if (loginId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+					   
+	                    String role = jwtUtil.extractRole(jwtToken);
+	                    
+	                    UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+	                            loginId, null,
+	                            List.of(new SimpleGrantedAuthority("ROLE_" + role))
+	                    );
+	                    
+	                    authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+	                    
+	                    SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+	                }
 
-					UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(loginId);
-
-					UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-							userDetails, null, userDetails.getAuthorities());
-
-					authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
-					SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-				}
-
-				// Create UserContext and store in ThreadLocal
-				UserDTO dto = new UserDTO();
-				dto.setLoginId(loginId);
-
-				System.out.println("request filter: " + dto.getLoginId());
-
-				UserContext context = new UserContext(dto);
-
-				// ThreadLocal me set
-				UserContextHolder.setContext(context);
-
-			} catch (Exception e) {
-				// Handle invalid token
-				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-				response.getWriter().write("Token is invalid... plz login again..!!");
-				return;
-			}
-		}
-		filterChain.doFilter(request, response);
+	                UserDTO dto = new UserDTO();
+	                dto.setLoginId(loginId);
+	                dto.setId(jwtUtil.extractUserId(jwtToken)); 
+	                System.out.println("request filter: " + dto.getLoginId());
+	                UserContext context = new UserContext(dto);
+	                UserContextHolder.setContext(context);
+	            } catch (Exception e) {
+	                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+	                response.setContentType("application/json");
+	                response.getWriter().write(e.getMessage());
+	                return;
+	            }
+	        } 
+	        filterChain.doFilter(request, response);
+	    }
 	}
-}

@@ -64,6 +64,8 @@ import { BlockListComponent } from './block-list/block-list.component';
 import { BlockListListComponent } from './block-list/block-list-list.component';
 import { MappingComponent } from './mapping/mapping.component';
 import { MappingListComponent } from './mapping/mapping-list.component';
+import { JobComponent } from './job/job.component';
+import { JobListComponent } from './job/job-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')};
@@ -122,7 +124,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BlockListComponent,
     BlockListListComponent,
     MappingComponent,
-    MappingListComponent
+    MappingListComponent,
+    JobComponent,
+    JobListComponent
   ],
   imports: [
     BrowserModule,

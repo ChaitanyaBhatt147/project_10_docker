@@ -24,7 +24,7 @@ export class AuthService implements HttpInterceptor {
       req = req.clone({
         setHeaders: {
           withCredentials: 'true',
-          name: 'Deepak',
+          name: 'Chaitanya',
           Authorization: this.token,
         },
       });
@@ -33,7 +33,6 @@ export class AuthService implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
 
         if (error.status === 401) {
-          localStorage.clear();
           this.router.navigate(['/login'], {
             queryParams: { errorMessage: error.error },
           });

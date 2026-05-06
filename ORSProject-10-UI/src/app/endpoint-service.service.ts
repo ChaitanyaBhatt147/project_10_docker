@@ -33,4 +33,5 @@ export class EndpointServiceService {
   public DONATIONCAMP = this.SERVER_URL + "/DonationCamp";
   public BLOCKLIST = this.SERVER_URL + "/BlockList";
   public MAPPING = this.SERVER_URL + "/Mapping";
+  public JOB = this.SERVER_URL + "/Job";
 }

@@ -50,6 +50,8 @@ import { BlockListComponent } from './block-list/block-list.component';
 import { BlockListListComponent } from './block-list/block-list-list.component';
 import { MappingComponent } from './mapping/mapping.component';
 import { MappingListComponent } from './mapping/mapping-list.component';
+import { JobComponent } from './job/job.component';
+import { JobListComponent } from './job/job-list.component';
 
 const routes: Routes = [
   {
@@ -343,6 +345,18 @@ const routes: Routes = [
   {
     path: 'mappinglist',
     component: MappingListComponent
+  },
+  {
+    path:'job',
+    component: JobComponent
+  },
+  {
+    path:'job/:id',
+    component: JobComponent
+  },
+  {
+    path: 'joblist',
+    component: JobListComponent
   }
 ];
 

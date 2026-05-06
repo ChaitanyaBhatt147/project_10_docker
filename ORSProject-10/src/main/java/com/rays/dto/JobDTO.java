@@ -48,7 +48,7 @@ public class JobDTO extends BaseDTO{
 	}
 	@Override
 	public String getUniqueKey() {
-		return "jobCOde";
+		return "jobCode";
 	}
 	@Override
 	public String getUniqueValue() {

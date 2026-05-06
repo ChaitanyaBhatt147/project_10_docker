@@ -8,15 +8,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.exception.JDBCConnectionException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.CannotCreateTransactionException;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.rays.common.UserContext;
@@ -106,8 +103,4 @@ public class JWTRequestFilter extends OncePerRequestFilter {
 	        } 
 	        filterChain.doFilter(request, response);
 	    }
-<<<<<<< HEAD
 	}
-=======
-	}
->>>>>>> 43d029de1fc0f4a06c93f9564a246214f9f371a1

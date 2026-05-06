@@ -9,6 +9,6 @@ import com.rays.dto.JobDTO;
 
 @Service
 @Transactional
-public class JobServiceImpl extends BaseServiceImpl<JobDTO, JobDAOInt>{
+public class JobServiceImpl extends BaseServiceImpl<JobDTO, JobDAOInt> implements JobServiceInt{
 
 }

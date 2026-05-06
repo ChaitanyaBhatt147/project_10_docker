@@ -4,7 +4,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.rays.common.BaseDTO;
 import com.rays.common.BaseForm;
+import com.rays.dto.JobDTO;
 
 public class JobForm extends BaseForm {
 
@@ -19,17 +21,15 @@ public class JobForm extends BaseForm {
     private String jobName;
 
     @NotEmpty(message = "Cron Expression is required")
-    @Pattern(
-        regexp = "^([0-5]?\\d|\\*)\\s+([0-5]?\\d|\\*)\\s+([0-2]?\\d|\\*)\\s+([1-9]|[12]\\d|3[01]|\\*)\\s+([1-9]|1[0-2]|\\*)\\s+(\\?|\\*|[0-6])$",
-        message = "Invalid Cron Expression format"
-    )
+    @Pattern(regexp = "^\\d+$", message = "Only numbers allowed")
     private String cronExpression;
 
     @NotEmpty(message = "Status is required")
-    @Pattern(regexp = "^(ACTIVE|INACTIVE)$", message = "Status must be ACTIVE or INACTIVE")
+    @Pattern(
+        regexp = "^(Active|Inactive)$",
+        message = "Status must be Active or Inactive"
+    )
     private String status;
-
-    // Getters and Setters
 
     public String getJobCode() {
         return jobCode;
@@ -61,5 +61,14 @@ public class JobForm extends BaseForm {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    @Override
+    public BaseDTO getDto() {
+    	JobDTO dto = initDTO(new JobDTO());
+    	dto.setJobCode(jobCode);
+    	dto.setJobName(jobName);
+    	dto.setCronExpression(cronExpression);
+    	dto.setStatus(status);
+    	return dto;
     }
 }

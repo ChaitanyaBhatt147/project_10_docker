@@ -1,42 +1,48 @@
+````markdown id="u3v0f2"
 # 🚀 ORS Project 10 – Dockerized Full Stack Application
 
 <p align="center">
   <b>Enterprise-Level Full Stack Application with Docker & CI/CD</b><br><br>
-  <img src="https://img.shields.io/badge/Backend-SpringBoot-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Frontend-Angular-red?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Database-MySQL-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/DevOps-Docker%20%7C%20Jenkins-orange?style=for-the-badge"/>
+
+  <img src="https://img.shields.io/badge/Backend-SpringBoot-success?style=for-the-badge&logo=springboot"/>
+  <img src="https://img.shields.io/badge/Frontend-Angular-red?style=for-the-badge&logo=angular"/>
+  <img src="https://img.shields.io/badge/Database-MySQL-blue?style=for-the-badge&logo=mysql"/>
+  <img src="https://img.shields.io/badge/DevOps-Docker%20%7C%20Jenkins-orange?style=for-the-badge&logo=docker"/>
 </p>
 
 ---
 
-## 📌 Overview
+# 📌 Overview
 
-A **production-ready, fully containerized full stack application** demonstrating modern software engineering and DevOps practices.
+ORS Project 10 is a **production-ready full stack web application** designed using modern enterprise technologies and DevOps practices.
 
-This project integrates:
+The project demonstrates:
 
-* ⚙️ Scalable backend using Spring Boot
-* 🎨 Dynamic frontend using Angular
-* 🗄️ Persistent storage with MySQL
-* 🐳 Containerized deployment using Docker
-* 🔄 CI/CD automation using Jenkins
+- ⚙️ Backend development using Spring Boot
+- 🎨 Responsive frontend using Angular
+- 🗄️ MySQL database integration
+- 🐳 Dockerized multi-container architecture
+- 🔄 CI/CD pipeline integration using Jenkins
 
----
-
-## 🧠 Key Highlights
-
-✔ Microservice-ready architecture
-✔ Fully Dockerized (Multi-container setup)
-✔ Clean separation of concerns
-✔ CI/CD pipeline integration
-✔ Real-world project structure (job-ready)
+This repository showcases a **real-world deployment workflow** for full stack applications.
 
 ---
 
-## 🏗️ System Architecture
+# 🧠 Key Highlights
 
-```
+✔ Enterprise-Level Architecture  
+✔ Fully Dockerized Environment  
+✔ Frontend + Backend Separation  
+✔ CI/CD Ready  
+✔ Container Networking  
+✔ Real-world Project Structure  
+✔ Scalable Deployment Setup  
+
+---
+
+# 🏗️ System Architecture
+
+```text
         ┌────────────────────┐
         │   Angular Frontend │   (Port: 4200)
         └─────────┬──────────┘
@@ -51,31 +57,41 @@ This project integrates:
         │     MySQL DB       │   (Port: 3307)
         └────────────────────┘
 
-        🔗 All services connected via Docker Network
-```
+        🔗 Connected through Docker Network
+````
 
 ---
 
-## ⚙️ Tech Stack
+# ⚙️ Tech Stack
 
-### 🔹 Backend
+## 🔹 Backend
 
-* Java 11+
+* Java
 * Spring Boot
+* Spring MVC
+* Spring Security
 * Hibernate / JPA
+* Maven
 * REST APIs
 
-### 🔹 Frontend
+---
+
+## 🔹 Frontend
 
 * Angular
 * TypeScript
-* HTML / CSS
+* HTML
+* CSS
 
-### 🔹 Database
+---
+
+## 🔹 Database
 
 * MySQL 8
 
-### 🔹 DevOps
+---
+
+## 🔹 DevOps & Deployment
 
 * Docker
 * Docker Compose
@@ -83,130 +99,282 @@ This project integrates:
 
 ---
 
-## 🚀 Quick Start (Most Important for Recruiters)
+# 📁 Project Structure
 
 ```bash
-git clone https://github.com/ChaitanyaBhatt147/project_10_docker.git
-cd project_10_docker
-docker-compose up --build
-```
-
-👉 Access:
-
-* Frontend: [http://localhost:4200](http://localhost:4200)
-* Backend: [http://localhost:8080](http://localhost:8080)
-
----
-
-## 📁 Project Structure
-
-```
 project_10_docker/
 │
-├── backend/                 # Spring Boot Application
-├── frontend/                # Angular Application
-├── docker-compose.yml       # Multi-container setup
-├── Jenkinsfile              # CI/CD pipeline
+├── ORSProject-10/               # Spring Boot Backend
+│
+├── ORSProject-10-UI/            # Angular Frontend
+│
+├── docker-compose.yml           # Multi-container Docker Setup
+│
+├── Jenkinsfile                  # Jenkins CI/CD Pipeline
+│
+├── screenshots/                 # Project Screenshots
+│
 └── README.md
 ```
 
 ---
 
-## 🐳 Docker Setup
+# 🚀 Quick Start
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/ChaitanyaBhatt147/project_10_docker.git
+
+cd project_10_docker
+```
+
+---
+
+## 2️⃣ Build Backend WAR File
+
+```bash
+cd ORSProject-10
+
+mvn clean package
+```
+
+---
+
+## 3️⃣ Run Docker Containers
+
+```bash
+cd ..
+
+docker-compose up --build
+```
+
+---
+
+# 🌐 Application URLs
+
+| Service  | URL                                            |
+| -------- | ---------------------------------------------- |
+| Frontend | [http://localhost:4200](http://localhost:4200) |
+| Backend  | [http://localhost:8080](http://localhost:8080) |
+| MySQL    | localhost:3307                                 |
+
+---
+
+# 🐳 Docker Setup
+
+## Start Containers
 
 ```bash
 docker-compose up -d
+```
+
+---
+
+## Stop Containers
+
+```bash
 docker-compose down
 ```
 
 ---
 
-## 🔌 Services & Ports
+## View Running Containers
 
-| Service  | Port | Description |
-| -------- | ---- | ----------- |
-| Frontend | 4200 | Angular UI  |
-| Backend  | 8080 | REST APIs   |
-| MySQL    | 3307 | Database    |
+```bash
+docker ps
+```
 
 ---
 
-## 🔄 CI/CD Pipeline (Jenkins)
+## View Logs
 
-✔ Code Checkout
+```bash
+docker-compose logs -f
+```
+
+---
+
+# 🔌 Container Architecture
+
+| Container Name     | Purpose             |
+| ------------------ | ------------------- |
+| frontend-container | Angular Frontend    |
+| backend-container  | Spring Boot Backend |
+| mysql-container    | MySQL Database      |
+
+All containers communicate using a custom Docker bridge network.
+
+---
+
+# 🔧 Backend Configuration
+
+Update database configuration inside:
+
+```properties
+ORSProject-10/src/main/resources/application.properties
+```
+
+Example:
+
+```properties
+spring.datasource.url=jdbc:mysql://mysql-container:3306/ors
+spring.datasource.username=root
+spring.datasource.password=root
+```
+
+---
+
+# 🧪 Run Frontend Separately
+
+```bash
+cd ORSProject-10-UI
+
+npm install
+
+ng serve
+```
+
+---
+
+# 🧪 Run Backend Separately
+
+```bash
+cd ORSProject-10
+
+mvn spring-boot:run
+```
+
+---
+
+# 🔄 Jenkins CI/CD Pipeline
+
+This project supports CI/CD integration using Jenkins.
+
+### Pipeline Includes:
+
+✔ Source Code Checkout
 ✔ Maven Build
 ✔ Angular Build
 ✔ Docker Image Creation
-✔ Deployment via Docker Compose
+✔ Container Deployment
+✔ Automated Build Workflow
 
 ---
 
-## 🎯 Features
+# 🎯 Features
 
-✨ User Authentication System
-✨ RESTful API Integration
-✨ Database Connectivity
+✨ Authentication & Authorization
+✨ REST API Integration
+✨ MySQL Database Connectivity
 ✨ Dockerized Deployment
-✨ CI/CD Automation
-✨ Scalable Architecture
+✨ Full Stack Architecture
+✨ CI/CD Ready
+✨ Responsive Frontend UI
+✨ Admin Dashboard
+✨ Dynamic Modules & CRUD Operations
 
 ---
 
-## ⚠️ Troubleshooting
+# 📸 Application Screenshots
 
-**MySQL Issue**
+## 🔐 Login Page
 
-* Check container running
-* Verify DB config
-
-**CORS Issue**
-
-* Enable in backend
+<p align="center">
+  <img src="screenshots/loginPage.png" width="900"/>
+</p>
 
 ---
 
-## 📸 Screenshots
+## 🏠 Welcome Page
 
-> Add UI screenshots here for extra impact
-
----
-
-## 🌟 Why This Project Stands Out
-
-* Real-world enterprise architecture
-* DevOps + Full Stack combination
-* Production-ready Docker setup
-* Strong portfolio project
+<p align="center">
+  <img src="screenshots/welcomePage.png" width="900"/>
+</p>
 
 ---
 
-## 👨‍💻 Author
+## 📊 Admin Dashboard
 
-**Chaitanya Bhatt**
-
-* GitHub: [https://github.com/ChaitanyaBhatt147](https://github.com/ChaitanyaBhatt147)
-* LinkedIn: [https://www.linkedin.com/in/chaitanya-bhatt-14july/](https://www.linkedin.com/in/chaitanya-bhatt-14july/)
-
----
-
-## ⭐ Support
-
-Give it a ⭐ if you like this project!
+<p align="center">
+  <img src="screenshots/deshboard.png" width="900"/>
+</p>
 
 ---
 
-## 📌 Future Enhancements
+# ⚠️ Troubleshooting
+
+## MySQL Connection Issue
+
+* Verify MySQL container is running
+* Check database credentials
+* Ensure correct Docker network configuration
+
+---
+
+## Docker Build Issue
+
+```bash
+docker-compose build --no-cache
+```
+
+---
+
+## CORS Issue
+
+Enable CORS configuration in Spring Boot backend.
+
+---
+
+# 🌟 Why This Project Stands Out
+
+✅ Real-world Full Stack Architecture
+✅ Docker + Jenkins Integration
+✅ Production-ready Setup
+✅ Backend + Frontend + DevOps Combination
+✅ Strong Portfolio Project for Interviews
+✅ Enterprise Deployment Workflow
+
+---
+
+# 📌 Future Enhancements
 
 * JWT Authentication
-* Swagger API Docs
-* Cloud Deployment
-* Kubernetes
+* Swagger API Documentation
+* Kubernetes Deployment
+* Cloud Hosting (AWS/Azure)
+* Monitoring & Logging
+
+---
+
+# 👨‍💻 Author
+
+## Chaitanya Bhatt
+
+🔗 GitHub: [https://github.com/ChaitanyaBhatt147](https://github.com/ChaitanyaBhatt147)
+
+🔗 Repository: [https://github.com/ChaitanyaBhatt147/project_10_docker](https://github.com/ChaitanyaBhatt147/project_10_docker)
+
+🔗 LinkedIn: [https://www.linkedin.com/in/chaitanya-bhatt-14july/](https://www.linkedin.com/in/chaitanya-bhatt-14july/)
+
+---
+
+# ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
 
 ---
 
 # 💎 Final Impression
 
 > ✅ Full Stack + DevOps Ready
-> ✅ Production-level understanding
-> ✅ Strong real-world project
+> ✅ Enterprise-Level Architecture
+> ✅ Dockerized Deployment Workflow
+> ✅ CI/CD Integrated
+> ✅ Industry-Oriented Project
+> ✅ Strong Resume & Portfolio Project
 
+---
+
+```
+```
